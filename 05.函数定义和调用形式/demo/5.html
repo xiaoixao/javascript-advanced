@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1. 实参arguments数组和形参 a b c之间的关系
+      function fun(a, b, c) {
+        console.log(a, b, c);
+        console.dir(arguments);
+        console.log(a === arguments[0]); //true
+        console.log(b === arguments[1]); //true
+        console.log(c === arguments[2]); //true
+      }
+      var obj = { x: 1, y: 2 };
+      fun(1, obj);
+
+      //2. 修改第一个形参a 和实参arguments[0],观察之间的关系
+      function fun(a, b, c) {
+        console.log(a === arguments[0]); //true
+        a = 2;
+        console.log(a === arguments[0]); //true
+        arguments[0] = 3;
+        console.log(a === arguments[0]); //true
+      }
+      var obj = { x: 1, y: 2 };
+      fun(1, obj);
+
+      //3. 修改第二个形参b 和实参arguments[1],观察之间的关系
+      function fun(a, b, c) {
+        console.log(b === arguments[1]); //true
+        b = [1, 2, 3];
+        console.log(b === arguments[1]); //true
+        arguments[1] = [2, 3, 4];
+        console.log(b === arguments[1]); //true
+      }
+      var obj = { x: 1, y: 2 };
+      fun(1, obj);
+      console.log(obj);
+
+      //4. 修改第三个形参c 和实参arguments[2],观察之间的关系
+      function fun(a, b, c) {
+        console.log(c === arguments[2]); //true
+        c = 2;
+        console.log(arguments[2]);
+        console.log(c === arguments[2]); //false
+        arguments[2] = 3;
+        console.log(c);
+        console.log(c === arguments[2]); //false
+      }
+      var obj = { x: 1, y: 2 };
+      fun(1, obj);
+
+      //双向绑定特性：向函数传递参数时，arguments 数组中的对应单元会和命名参数建立关联（linkage）以得到相同的值。相反，不传递参数就不会建立关联。
+
+      //arguments 的 length 属性
+      function fun(a, b, c) {
+        console.log(arguments.length);
+        arguments[4] = 1;
+        console.log(arguments.length); // arguments只与传入的实参有关系
+        return a + b;
+      }
+      var obj = { x: 1, y: 2 };
+      fun(1, obj);
+    </script>
+  </body>
+</html>

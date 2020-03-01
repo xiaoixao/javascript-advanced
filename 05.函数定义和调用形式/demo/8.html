@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //call函数调用   this的指向是谁
+
+      var length = 10;
+
+      function fn1(a) {
+        console.log(this);
+        console.log(this.length);
+      }
+
+      function fn2(a, b) {
+        console.log(this);
+        console.log(this.length);
+      }
+
+      fn1(); //10
+      fn1.call(); //10
+      fn1.call(null); //10
+      fn1.call(undefined); //10
+
+      var str = "123";
+      fn1.call(str);
+
+      var num = 123;
+      fn1.call(num);
+
+      var bool = true;
+      fn1.call(bool);
+
+      fn1.call(fn2);
+      fn2.call(fn1);
+
+      //通过call调用函数时  如何传参
+      function add(a, b) {
+        //需要两个参数
+        return a + b;
+      }
+      add(1, 2); //直接调用
+      add.call(window, 1, 2); //call调用
+
+      //通过apply调用函数时  如何传参
+      function add(a, b) {
+        //需要两个参数
+        return a + b;
+      }
+      add(1, 2); //直接调用
+      add.apply(window, [1, 2]); //apply调用
+    </script>
+  </body>
+</html>

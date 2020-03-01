@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //name属性
+      var f1 = function f2() {
+        console.log(f1.name);
+        console.log(f2.name);
+      };
+      f1();
+
+      var f1 = function() {};
+      console.log(f1.name);
+
+      var obj = { method: function() {} };
+      console.log(obj.method.name);
+
+      var f1 = new Function();
+      console.log(f1.name);
+
+      //length属性
+      function fun1(){}
+      console.log(fun1.length);
+
+      function fun2(a,b){}
+      console.log(fun2.length);
+    </script>
+  </body>
+</html>
