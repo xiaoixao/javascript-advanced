@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //案例1
+        console.log(add);
+
+        function add() {
+            console.log(1);
+        }
+        var add = 2;
+        console.log(add);
+
+
+        //案例2
+        console.log(add);
+        var add = 1;
+
+        function add() {
+            console.log(2);
+        }
+        console.log(add);
+
+
+        ////案例3
+        console.log(add);
+
+        function add() {
+            console.log(1);
+        }
+
+        function add() {
+            console.log(2);
+        }
+        console.log(add);
+
+        
+        ////案例4
+        console.log(add);
+        var add = 1;
+        var add = 2;
+        console.log(add);
+    </script>
+</body>
+
+</html>

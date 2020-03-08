@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      foo(); // 3
+      function foo() {
+        console.log(1);
+      }
+      var foo = function() {
+        console.log(2);
+      };
+
+      function foo() {
+        console.log(3);
+      }
+      console.log(foo);
+
+      //等价于
+     /*  
+      function foo() {  被覆盖
+        console.log(1);
+      }
+      */
+      function foo() {
+        console.log(3);
+      }
+      //var foo;  被忽略
+      foo();
+      foo = function() {
+        console.log(2);
+      };
+    </script>
+  </body>
+</html>
