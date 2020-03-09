@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var x = 100;
+        var obj = {
+            x: 50
+        };
+        var foo = {
+            x: 0,
+            getX: function () {
+                return this.x;
+            }
+        };
+
+        //通过对象调用方法
+        console.log(foo.getX()); //0
+
+        //call()、apply()改变调用方法中this的指向为指定对象
+        console.log(foo.getX.call(obj)); //50
+        console.log(foo.getX.apply(obj)); //50
+
+        //call()、apply()没有指定对象时 默认指向全局对象（window）
+        console.log(foo.getX.call()); //100
+        console.log(foo.getX.apply()); //100
+
+
+
+        //call()、apply()使用仍然是执行原来对象的方法里面的代码，
+        //只是代码中的this指向改变了
+        //如果调用的对象方法里面没有this，
+        //那么使用call()和apply()没有任何改变，也没有意义
+    </script>
+</body>
+
+</html>

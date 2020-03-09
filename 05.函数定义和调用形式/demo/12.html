@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //bind() 方法创建一个新的函数,并不会执行
+        //案例1
+        var length = 10;
+
+        function fn1() {
+            console.log(this);
+            console.log(this.length);
+        }
+
+        function fn2() {
+            console.log(this);
+            console.log(this.length);
+        }
+        var fn1Bound = fn1.bind(fn2);
+        console.log(fn1Bound == fn1); //false  但是大括号里面的结构是一样的
+        console.log(fn1Bound);
+
+        fn1Bound(1, 2);
+
+
+        //案例2
+        function add(a, b) {
+            console.log(this);
+            console.log(a + b);
+        }
+
+        function sub(a, b) {
+            console.log(this);
+            console.log(a - b);
+        }
+        var addBound = add.bind(sub, 3, 1);
+        console.log(addBound == add);
+        console.log(addBound);
+        newAdd();
+    </script>
+</body>
+
+</html>

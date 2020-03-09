@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //具名函数优势
+      function f1() {
+        (function() {
+          console.error("error");
+        })();
+      }
+      f1();
+
+
+
+      //代理函数名
+      //1.
+      var f1 = function f2() {};
+      f1();
+      f2();
+      
+      //2.
+      var f1 = function f2() {
+        console.log(f1);
+        console.log(f2);
+        console.log(f1 === f2);
+      };
+      f1();
+    </script>
+  </body>
+</html>

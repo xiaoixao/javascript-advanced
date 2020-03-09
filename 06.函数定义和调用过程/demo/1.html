@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //示例1
+      var color = "blue";
+      function changeColor() {
+        var anotherColor = "red";
+
+        function swapColors() {
+          var tempColor = anotherColor;
+          anotherColor = color;
+          color = tempColor;
+        }
+        swapColors();
+      }
+      changeColor();
+
+      //示例2
+      function f1() {
+        var n = 999;
+        function f2() {
+          console.log(n++);
+        }
+        return f2;
+      }
+      var result = f1();
+      result(); //输出多少？
+    </script>
+  </body>
+</html>
