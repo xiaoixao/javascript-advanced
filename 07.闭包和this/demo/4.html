@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //案例1 —— 函数作为对象的方法调用时，函数上下文指向这个对象
+      var a = 100;
+      var obj = {
+        a: 300,
+        fun: function() {
+          console.log(this.a);
+        }
+      };
+      obj.fun(); //300
+
+      //案例2
+      var a = 100;
+      var obj = {
+        a: 300,
+        fun: function() {
+          console.log(this.a);
+        }
+      };
+      var fun = obj.fun;
+      fun(); //???
+      obj.fun(); //300
+
+      //案例3——数组中存放函数，被数组索引调用，this上下文指向这个数组
+      function fun() {
+        console.log(this.length);
+      }
+      var length = 10;
+      var arr = [100, 200, fun];
+      fun(); //10
+      arr[2](); //3
+    </script>
+  </body>
+</html>

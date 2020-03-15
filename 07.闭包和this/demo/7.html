@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   普通模式中，如果一个变量没有声明就赋值，默认是全局变量
+      //   严格模式下，禁止这种用法，变量必须先声明再使用
+      function fun1() {
+        // "use strict";
+        a = 2;
+      }
+      fun1();
+
+      
+      //   普通模式中，在全局作用域函数中的 this 指向 window 对象
+      //   严格模式下，全局作用域中函数中的 this 是 undefined
+      function fun2() {
+        // "use strict";
+        console.log(this);
+      }
+      fun2();
+
+
+      //   普通模式中，构造函数不加 new 也可以调用，this 指向全局对象
+      //   严格模式下，构造函数不加 new 调用，this 报错
+      function Fun3(name) {
+        // "use strict";
+        this.name = name;
+      }
+      Fun3();
+
+
+      //   普通模式中，函数允许参数重名
+      //   严格模式下，函数参数不允许重名
+      function fun4(a, a) {
+        // "use strict";
+        a = 5;
+        console.log(a);
+        console.dir(arguments);
+      }
+      fun4(1, 2);
+    </script>
+  </body>
+</html>
