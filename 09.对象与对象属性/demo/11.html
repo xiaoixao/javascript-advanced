@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //定义方式1
+      var obj = {
+        price: 1000,
+        set nowPrice(value) {
+          this.price = value;
+        },
+        get nowPrice() {
+          return this.price * 0.8;
+        }
+      };
+      //定义方式2
+      Object.defineProperty(obj, "nowPrice", {
+        set: function(value) {
+          this.price = value;
+        },
+        get: function() {
+          return this.price * 0.8;
+        },
+        configurable: false,
+        enumerable: true
+      });
+    </script>
+  </body>
+</html>

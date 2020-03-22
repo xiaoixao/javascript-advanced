@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function People(name) {
+        this.name = name;
+      }
+
+      People.index = 1; //静态属性
+      People.prototype.hobby = "singing"; //原型属性
+
+      var per = new People("Tom");
+      per.age = 20; //实例属性
+    </script>
+  </body>
+</html>
