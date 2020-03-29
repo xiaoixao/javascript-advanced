@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //自定义函数
+      function Foo() {}
+      var f1 = new Foo();
+      var f2 = new Foo();
+
+      f1.__proto__ === f2.__proto__; //true
+      f1.__proto__ === Foo.prototype; //true
+      Foo.prototype.constructor === Foo; //true
+      f1.constructor === Foo; //true
+
+      // Foo的原型对象呢？
+      // Foo.prototype的原型对象呢？
+
+      var o1 = new Object();
+      var o2 = new Object();
+      o1.__proto__ === o2.__proto__; //true
+      o1.__proto__ === Object.prototype; //true
+      Object.prototype.constructor === Object; //true
+      o1.constructor === Object; //true
+
+      // Object
+      // Object.prototype的原型对象呢？
+    </script>
+  </body>
+</html>
