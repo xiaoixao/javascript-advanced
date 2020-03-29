@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      var obj = {};
+      obj.a = 100;
+      var arr = [];
+      arr.a = 100;
+
+      function fn() {}
+      var f1 = new fn();
+      fn.a = 100;
+      console.log(obj.__proto__ == Object.prototype); //true
+      console.log(arr.__proto__ == Array.prototype); //true
+      console.log(fn.__proto__ == Function.prototype); //true
+      console.log(f1.__proto__ == fn.prototype); //true
+    </script>
+  </body>
+</html>

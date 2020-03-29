@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function Foo() {}
+      var f1 = new Foo();
+
+      f1 instanceof Foo; //true
+      f1 instanceof Function; //false
+      f1 instanceof Object; //true
+      Foo instanceof Function; //true
+      Foo instanceof Object; //true
+
+      Object instanceof Function; //true
+      Object instanceof Object; //true
+      Function instanceof Function; //true
+      Function instanceof Object; //true
+    </script>
+  </body>
+</html>
