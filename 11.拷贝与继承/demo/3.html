@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      var Person = function(name, sex) {
+        this.name = name;
+        this.sex = sex;
+        var _privateVariable = ""; //私有变量
+        //构造器中定义的方法，即为私有方法
+        function privateMethod() {
+          _privateVariable = "private value";
+          console.log("私有方法被调用！私有成员值：" + _privateVariable);
+        }
+        privateMethod(); //构造器内部可以调用私有方法
+      };
+
+      Person.prototype.sayHello = function() {
+        console.log("姓名：" + this.name + "，性别：" + this.sex);
+      };
+
+      var p = new Person("杨过", "男");
+      p.sayHello();
+
+      p.privateMethod(); //这里将报错，私有方法无法被实例调用
+      console.log(p._privateVariable); //显示: undefined
+    </script>
+  </body>
+</html>

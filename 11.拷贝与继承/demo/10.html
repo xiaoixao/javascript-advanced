@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>递归——树结构</title>
+    <style>
+      li {
+        list-style: none;
+        position: relative;
+      }
+
+      li ul {
+        display: none;
+      }
+
+      p {
+        cursor: pointer;
+      }
+
+      span {
+        position: absolute;
+        left: -20px;
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      var data = [
+        {
+          text: "汽车 / 二手车 / 用品",
+          child: [
+            {
+              text: "品质汽车",
+              child: [
+                {
+                  text: "雪佛兰",
+                  child: [
+                    {
+                      text: "黑色"
+                    },
+                    {
+                      text: "红色"
+                    }
+                  ]
+                },
+                {
+                  text: "海瑞"
+                }
+              ]
+            },
+            {
+              text: "空调",
+              child: [
+                {
+                  text: "壁挂式空调"
+                },
+                {
+                  text: "柜式空调"
+                },
+                {
+                  text: "中央空调"
+                }
+              ]
+            },
+            {
+              text: "洗衣机"
+            },
+            {
+              text: "冰箱"
+            },
+            {
+              text: "进口电器"
+            }
+          ]
+        },
+        {
+          text: "手机 / 运营商 / 数码"
+        },
+        {
+          text: "工具 / 装修 / 建材",
+          child: [
+            {
+              text: "指纹锁"
+            },
+            {
+              text: "转换器"
+            }
+          ]
+        },
+        {
+          text: "家居 / 家具 / 家装 / 厨具"
+        },
+        {
+          text: "男装 / 女装 / 童装 / 内衣"
+        },
+        {
+          text: "美妆个护 / 宠物"
+        }
+      ];
+
+      window.onload = function() {
+        var ul = document.createElement("ul");
+        document.body.appendChild(ul);
+        create(ul, data);
+        addEvent();
+      };
+
+      function create(list, data) {
+        //传入ul和数组
+        for (var i = 0; i < data.length; i++) {
+          //循环数组长度生成li和内容
+          var li = document.createElement("li");
+          list.appendChild(li);
+          if (data[i].child) {
+            //如果li有子项
+            li.innerHTML = "<span>+</span><p>" + data[i].text + "</p>";
+            var ul = document.createElement("ul"); //生成ul
+            li.appendChild(ul);
+            create(ul, data[i].child); ////传入ul，以及子项的数组，生成子项的li
+          } else {
+            //如果li没有子项
+            li.innerHTML = "<p>" + data[i].text + "</p>";
+          }
+        }
+      }
+
+      function addEvent() {
+        var p = document.getElementsByTagName("p");
+        for (var i = 0; i < p.length; i++) {
+          p[i].onclick = function() {
+            var ul = this.nextElementSibling; /*获取它下边的ul */
+            if (ul) {
+              /*存在*/
+              var uls = this.parentNode.parentNode.getElementsByTagName("ul"); //找到所有同级的ul  关闭
+              for (var i = 0; i < uls.length; i++) {
+                if (uls[i] != ul) {
+                  //排除当前个
+                  uls[i].style.display = "none"; //清除掉同级所有ul(排除当前个)
+                }
+              }
+              /* 操作当前个 */
+              if (ul.style.display == "block") {
+                ul.style.display = "none";
+              } else {
+                ul.style.display = "block";
+              }
+            }
+          };
+        }
+      }
+    </script>
+  </body>
+</html>
