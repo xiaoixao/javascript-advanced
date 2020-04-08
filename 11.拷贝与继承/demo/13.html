@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var person1 = {
+      name: "Lily",
+      hobby: ["sing", "play", "sleep"],
+      friends: [{
+          name: "小明",
+          age: 18
+        },
+        {
+          name: "小红",
+          age: 20
+        },
+        {
+          name: "小白",
+          age: 22
+        }
+      ]
+    };
+    var person2;
+
+    function copy(origin, target) {
+      target = target || {};
+      for (var name in origin) {
+        if (origin[name] != null && typeof origin[name] == "object") {
+          target[name] = Object.prototype.toString.call(origin[name]).slice(8, -1) == "Array" ? [] : {};
+          copy(origin[name], target[name]);
+        } else {
+          target[name] = origin[name];
+        }
+      }
+      return target;
+    }
+
+    person2 = copy(person1, person2);
+    person2.hobby.push("123");
+    person2.friends[0].age = 30;
+    console.log(person1);
+  </script>
+</body>
+
+</html>

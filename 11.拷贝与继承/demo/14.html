@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      var person1 = {
+        name: "Lily",
+        hobby: ["sing", "play", "sleep"]
+      };
+      var person2 = {};
+
+      function copy(origin, target) {
+        var target = target || {};
+        //最初的时候给它一个初始值
+
+        for (var name in origin) {
+          //先判断一下obj[name]是不是一个对象
+          if (origin[name] != null && typeof origin[name] === "object") {
+            //如果是对象的话，需要判断是{}还是[]
+            target[name] = origin[name].constructor === Array ? [] : {};
+            //然后来无限调用函数自己 递归思想
+            copy(origin[name], target[name]);
+          } else {
+            target[name] = origin[name];
+            //如果不是对象，基本数据类型可以直接赋值
+          }
+        }
+        return target;
+      }
+      person2 = copy(person1, person2);
+      person1.hobby.push("eat");
+      console.log(person2.hobby);
+    </script>
+  </body>
+</html>

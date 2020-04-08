@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 模仿访问器属性set,get的封装
+      function Person() {
+        var salary = 0.0;
+        this.setSalary = function(value) {
+          salary = value;
+        };
+        this.getSalary = function() {
+          return salary;
+        };
+      }
+      var p = new Person();
+
+      p.setSalary(1000);
+      console.log(p.getSalary()); //返回1000
+      console.log(p.salary); //返回undefined
+    </script>
+  </body>
+</html>
