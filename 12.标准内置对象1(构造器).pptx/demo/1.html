@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  日期格式化：
+  <div id="div1"></div>
+  去年今天的日期:
+  <div id="div2"></div>
+  获取五天前的日期:
+  <div id="div3"></div>
+  获取两个小时之后的时间:
+  <div id="div4"></div>
+  时间差：
+  <div id="div5"></div>
+  <script src="moment.js"></script>
+  <script>
+    var div1 = document.getElementById('div1');
+    var div2 = document.getElementById('div2');
+    var div3 = document.getElementById('div3');
+    var div4 = document.getElementById('div4');
+    var div5 = document.getElementById('div5');
+    //日期格式化
+    div1.innerHTML = moment().format('YYYY-MM-DD, hh:mm:ss');
+    //获取去年今天的日期
+    div2.innerHTML = moment().subtract(1, 'year').format('YYYY-MM-DD');
+    //获取五天前的日期
+    div3.innerHTML = moment().subtract(5, 'days').format('YYYY-MM-DD');
+    //获取两个小时之后的时间
+    div4.innerHTML = moment().add(2, 'hours').format('YYYY-MM-DD HH:mm:ss');
+    //时间差
+    /////1.
+    // var timestap = Date.now();
+    // setTimeout(function () {
+    //   div5.innerHTML = moment(timestap).fromNow();
+    // }, 3000)
+    /////2.
+    div5.innerHTML = moment("20191031", "YYYYMMDD").fromNow();
+  </script>
+</body>
+
+</html>
