@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //例1  嵌套try-catch
+
+        //如果try的catch-block中发生另一个异常，则包裹该try..catch的外部try-block中的剩余代码将不会执行，因为控制流会立即跳转到外部try的catch-block。
+        try {
+            try {
+                throw "ErrorMessage11";
+            } catch (e) {
+                throw "ErrorMessage22"; //抛出异常后将直接跳出catch，catch内后续代码不再执行
+                console.log("inside catch", e);
+                throw "ErrorMessage22";
+            } finally {
+                console.log("finally 111");
+            }
+        } catch (e) {
+            console.log("outside catch", e);
+        } finally {
+            console.log("finally 222");
+        }
+
+
+        //关于console
+        console.log("logInfo");
+        console.warn("warnInfo");
+        console.error("errorInfo");
+        console.assert(3 > 2, "有问题的话会输出这句话11111");
+        console.assert(2 === "2", "有问题的话会输出这句话22222");
+
+
+        //Part 2 嵌套的 try-blocks
+        //1
+        try {
+            try {
+                throw "oops";
+            } finally {
+                console.log("finally");
+            }
+        } catch (ex) {
+            console.error("outer", ex);
+        }
+        // Output:
+        // "finally"
+        // "outer" "oops"
+
+        //2
+        try {
+            try {
+                throw "oops";
+            } catch (ex) {
+                console.error("inner", ex);
+            } finally {
+                console.log("finally");
+            }
+        } catch (ex) {
+            console.error("outer", ex);
+        }
+        // Output:
+        // "inner" "oops"
+        // "finally"
+
+        //3
+        try {
+            try {
+                throw "oops";
+            } catch (ex) {
+                console.error("inner", ex);
+                throw ex;
+            } finally {
+                console.log("finally");
+            }
+        } catch (ex) {
+            console.error("outer", ex);
+        }
+        // Output:
+        // "inner" "oops"
+        // "finally"
+        // "outer" "oops"
+
+        //4
+        try {
+            try {
+                throw "oops";
+            } catch (ex) {
+                console.warn("inner", ex);
+                throw ex;
+            } finally {
+                console.log("finally");
+            }
+        } catch (ex) {
+            console.warn("outer", ex);
+        }
+        // Output:
+        // "inner" "oops"
+        // "finally"
+
+        //Part33333333333333
+        //思考下述两段代码的区别，思考两者调用栈CallStack的不同
+        try {
+            function abc(x, cb) {
+                console.log(x);
+                cb();
+            }
+            abc("xx", function () {
+                var arr = new Array(-1);
+            });
+        } catch (e) {
+            console.log(e);
+        }
+
+        //JS的异步
+        //思考这种情况是否能捕获到异常，回调函数捕获异常的问题
+        try {
+            function abc(x, cb) {
+                console.log(x);
+                cb();
+            }
+        } catch (e) {
+            console.log(e);
+        }
+        abc("xx", function () {
+            var arr = new Array(-1);
+        });
+    </script>
+</body>
+
+</html>

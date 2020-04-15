@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        try {
+            console.log(aaa);
+        } catch (e) {
+            console.log(typeof e);
+            console.dir(e);
+            console.log("报错信息：" + e);
+        } finally {
+            console.log(e);
+        }
+
+        console.log(456);
+
+
+        try {
+            console.log(aaa);
+        } catch (e) {
+            console.log("e.name: " + e.name);
+            console.log("e.message: " + e.message);
+            console.log("e.stack: " + e.stack);
+            //浏览器还对error对象的属性做了扩展，添加了其他相关信息其中各浏览器厂商实现最多的是stack属性，它表示栈跟踪信息(safari不支持)  stack是实例的自有属性，不是继承属性
+            console.log(e.hasOwnProperty("stack"));//true  
+            console.log("报错信息：" + e);
+        }
+
+
+        //观察e.stack
+        function add() {
+            try {
+                console.log(aaa);
+            } catch (e) {
+                console.log("e.name: " + e.name);
+                console.log("e.message: " + e.message);
+                console.log("e.stack: " + e.stack); //ReferenceError: aaa is not defined
+                //at add (<anonymous>:4:29)
+                //at <anonymous>:12:9
+                console.log("报错信息：" + e);
+            }
+        }
+        add();
+    </script>
+</body>
+
+</html>
