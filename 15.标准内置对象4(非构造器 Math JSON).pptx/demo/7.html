@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSON.stringify()</title>
+</head>
+
+<body>
+    <script>
+        var person = {
+            name: "小明",
+            age: 18,
+            hobby: ["swimming", "sing", "basketball"],
+            date: 2000,
+            year: undefined
+        };
+        //第2个参数，为过滤器,参数过滤器为函数时
+        //函数需接受两个参数，属性（键）名和属性值
+        //我们称此函数为替换函数，只针对对象的属性，对数组无效
+        //通过替换函数可以修改属性对应的值
+
+        //switch...case语句
+        var people = JSON.stringify(person, function (key, value) {
+            //对对象属性值进行处理
+            switch (key) {
+                case "age":
+                    return undefined;
+                    break; //  如果返回值为undefined,那么相应的键值对会被忽略
+                case "hobby":
+                    return value.join(" ");
+                    break; //value此时为数组，可使用数组的所有方法
+                case "date":
+                    return 2017;
+                    break;
+                default: // 必须提供default 项，此时返回传入的值，以便其他值都能正常出现在结果了
+                    return value;
+            }
+        });
+        console.log(people);
+
+        //if语句
+        var people2 = JSON.stringify(person, function (key, value) {
+            //对对象属性值进行处理
+            if (key == "age") {
+                return undefined;
+            } else if (key == "hobby") {
+                return value.join(" ");
+            } else if (key == "date") {
+                return 2017;
+            } else { // 必须提供 else分支，此时返回传入的值，以便其他值都能正常出现在结果了
+                return value;
+            }
+        });
+        console.log(people2);
+    </script>
+</body>
+
+</html>

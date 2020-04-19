@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>锚字符</title>
+</head>
+
+<body>
+  <script>
+    //   (?=exp)	  匹配其后紧接 exp 的字符串
+    //  零宽正向先行断言，要求接下来的字符都与  exp  匹配，但不包括 匹配 exp 的那些字符
+    var pattern = /java/ig;
+    //var pattern = /java(?=script)/ig;
+    var str = "JavaScript is more fun than Java!";
+    console.log(str.replace(pattern, "$"));
+
+
+    //   (?!exp)匹配其后没有紧接 exp 的字符串
+    //   零宽负向先行断言，要求接下来的字符都与  exp  不匹配
+    var pattern = /java(?!script)/ig;
+    var str = "JavaScript is more fun than Java!";
+    console.log(str.replace(pattern, "$"));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>方括号</title>
+</head>
+
+<body>
+  <script>
+    // 方括号用于查找某个范围内的字符
+
+    //匹配[]方括号字符集中的任何字符。
+    var pattern = /[abc]/ig;
+    var str = 'This is a box! this is a Box too!';
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+
+
+    // [^]匹配任何不在方括号字符集中的任意字符。
+    var pattern = /[^abc]/ig;
+    var str = 'This is a box! this is a Box too!';
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+
+    //字符集[0-9]  [a-z]  [A-Z]  [A-z]
+    var pattern = /[0-9]/g; //  \d
+    //var pattern=/[^0-9]/g;    //  \D
+    //var pattern=/[a-z]/ig;
+    //var pattern=/[0-9a-z_]/ig;//  \w
+    var str = "123456abc@qq.com - 123abc@onest";
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+  </script>
+</body>
+
+</html>

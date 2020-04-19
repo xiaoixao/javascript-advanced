@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSON.parse()</title>
+</head>
+<body>
+<script>
+    var person = {//js对象
+        name: "小明",
+        age: 18,
+        hobby: ["swimming", "sing", "basketball"],
+        date: 2000
+    };
+    var textjson = JSON.stringify(person, null, 4);//js对象转为json格式
+    console.log(textjson);
+    //JSON.parse( )可接受第2个参数，为过滤器
+    //参数过滤器为函数时，需接受两个参数，属性（键）名和属性值
+    //我们称此函数为还原函数，规定了原始值在被返回之前如何被解析改造。
+
+    var text = JSON.parse(textjson,function(key,value){
+        switch(key){
+            case "age":
+                return 20;
+            case "date":
+                return 1998;
+            default :
+                return value;
+        }
+    });
+    console.log(text);
+</script>
+</body>
+</html>1

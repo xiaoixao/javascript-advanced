@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSON.stringify()</title>
+</head>
+<body>
+<script>
+    var person = {
+        name: "小明",
+        age: 18,
+        hobby: ["swimming", "sing", "basketball"],
+        date: 2000,
+        year:undefined
+    };
+    var people = JSON.stringify(person);
+    console.log(people);
+    //输出JSON字符串默认不包含任何空格字符或缩进
+    //undefined值会被忽略
+
+</script>
+</body>
+</html>

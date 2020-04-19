@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>元字符</title>
+</head>
+
+<body>
+  <script>
+    //元字符是拥有特殊含义的字符
+
+    // . 点符号 —— 匹配任意单个字符，换行符除外。
+    var pattern = /box./ig;
+    var str = 'This is a box\nThat is a Box too！\nThis is a box\nThat is a Box too！';
+    console.log(str);
+    console.log(str.replace(pattern, "1234"));
+
+    //   \w	  匹配字母、数字、下划线。
+    var pattern = /\w/ig;
+    var str = '12345abc@qq.com  class-name class_name';
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+
+    //  \W	  匹配非字母、数字、下划线。
+    var pattern = /\W/ig;
+    var str = '12345abc@qq.com  class-name class_name';
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+
+    //  \d	  匹配数字。
+    var pattern = /\d/g;
+    var str = '12345abc@qq.com  class-name';
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+
+    //  \D	  匹配非数字。
+    var pattern = /\D/g;
+    var str = '12345abc@qq.com  class-name';
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+
+    //  \s	  匹配空格字符（包括空格和换行空格）。
+    var pattern = /\s/g;
+    var str = 'This is a box!\nThat is a Box too！\nThat is a Box too too！';
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+
+    //  \S	  匹配非空格字符。
+    var pattern = /\S/g;
+    var str = 'This is a box!\nThat is a Box too！\nThat is a Box too too！';
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+
+    //  \n	  匹配换行符。
+    var pattern = /\n/g;
+    var str = 'This is a box!\nThat is a Box too！\nThat is a Box too too！';
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+  </script>
+</body>
+
+</html>

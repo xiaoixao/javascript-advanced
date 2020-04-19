@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSON.stringify()</title>
+</head>
+<body>
+<script>
+    var person = {
+        name: "小明",
+        age: 18,
+        hobby: ["swimming", "sing", "basketball"],
+        date: 2000,
+        year: undefined
+    };
+    //JSON.stringify( )可接受第3个参数，控制输出缩进和空白符
+    //参数为数值时，表示每个级别缩进的空格数
+    //最大缩进空格数位10,大于10时无效（按10处理）
+    var people = JSON.stringify(person,["name","age","hobby"],10);
+    var people1 = JSON.stringify(person,["name","age","hobby"],20);
+    console.log(people);
+    console.log(people2);
+
+    //如果不需要过滤参数，但又要保留缩进，则将过滤结果的参数设置为null。
+    var people3 = JSON.stringify(person,null,4);
+    console.log(people3);
+</script>
+</body>
+</html>

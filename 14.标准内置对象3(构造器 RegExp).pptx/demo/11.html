@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>锚字符</title>
+</head>
+
+<body>
+  <script>
+    //  ^	  匹配字符串的开头  注意全局匹配模式
+    //var pattern = /^this/;
+    //var pattern = /^this/i;
+    //var pattern = /^this/g;
+    //var pattern = /^this/m;
+    //var pattern = /^this/igm;
+    var str = 'This is a box! this is a Box too！\nthis is a box! This is a Box too！';
+    console.log(str.replace(pattern, "1234"));
+
+    // ^ —— 从字符串的开头开始匹配，即从左向右匹配
+    // 示例：验证 URI 是否遵循 https 协议
+    var url1 = "https://www.baidu.com/";
+    var url2 = "http://www.baidu.com/https";
+
+    function https(url) {
+      var pattern = / /; //这里填写？？？
+      return pattern.test(url);
+    }
+
+
+
+
+
+
+    //  $	  匹配字符串的结尾   注意全局匹配模式
+    //var pattern = /too!$/;
+    //var pattern = /too!$/m;
+    //var pattern = /too!$/mg;
+    var str = 'This is a box! this is a Box too!\nthis is a box! This is a Box too!';
+    console.log(str.replace(pattern, "1234"));
+
+
+    // $ —— 从字符串的结尾开始匹配，即从右向左匹配
+    // 示例：验证文件是否是 css 文件
+    var file1 = "css.js";
+    var file2 = "js.css";
+
+    function css(filename) {
+      var pattern = / /; //这里填写？？？
+      return pattern.test(filename);
+    }
+  </script>
+</body>
+
+</html>

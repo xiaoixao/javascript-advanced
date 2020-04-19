@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSON.stringify()</title>
+</head>
+<body>
+<script>
+    var person = {
+        name: "小明",
+        age: 18,
+        hobby: ["swimming", "sing", "basketball"],
+        date: 2000,
+        year: undefined
+    };
+    //JSON.stringify( )可接受第3个参数，控制输出缩进和空白符
+    //参数为字符串时，使用字符串作为缩进字符
+    //字符串最长不能超过10个字符长,大于10时无效（按10处理）
+    var people = JSON.stringify(person,["name","age","hobby"],"--");
+    var people1 = JSON.stringify(person,["name","age","hobby"],"*************");
+    console.log(people);
+    console.log(people2);
+
+
+</script>
+</body>
+</html>
