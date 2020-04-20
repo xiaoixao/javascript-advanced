@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    //匹配 16 进制颜色值
+    //表示一个 16 进制字符，可以用字符组 [0-9a-fA-F]。
+    //其中字符可以出现 3 或 6 次，需要是用量词和分支结构（分组）
+    //使用分支结构时，需要注意顺序
+
+
+    var pattern = /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/g;
+    var color = "#000000";
+    console.log(pattern.test(color));
+  </script>
+</body>
+
+</html>

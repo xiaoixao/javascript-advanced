@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>选择和分组</title>
+</head>
+
+<body>
+  <script>
+    //选择
+    var pattern = /red|green|blue/;
+    //var pattern = /red|green|blue/g;
+    //var str ="color:red";
+    //var str ="color:green";
+    //var str ="color:blue";
+    var str = "color:red;background:blue;";
+    console.log(str);
+    console.log(str.replace(pattern, "$"));
+
+    //分组  获取  编号
+    var pattern = /8(.*)8a(.*)f/;
+    var str = "8ggggg8abcdef";
+    var arr = pattern.exec(str);
+    console.log(arr);
+    console.log(arr[1]);
+    console.log(arr[2]);
+  </script>
+</body>
+
+</html>

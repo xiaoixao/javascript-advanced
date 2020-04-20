@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //循环去空格
+    var stt = "";
+    for (var i = 0; i < str.length; i++) {
+      if (str[i] != " ") {
+        stt += str[i];
+      }
+    }
+    str = stt;
+    console.log(str);
+
+    //正则表达式去空格
+    var str = "    abc  def  ghi jkl  mn  ";
+    str = str.replace(/\s+/g, "");
+    console.log(str);
+  </script>
+</body>
+
+</html>

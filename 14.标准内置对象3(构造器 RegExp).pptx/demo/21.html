@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 100px;
+    }
+
+    div {
+      width: 500px;
+      height: 200px;
+      border: 1px solid red;
+      line-height: 200px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .div1 {
+      font-size: 30px;
+
+
+      .div2 {
+        color: red;
+      }
+
+      .div3 {
+        font-weight: bold;
+      }
+
+      button {
+        padding: 5px 10px;
+      }
+  </style>
+</head>
+
+<body>
+  <div class="div1 div2 div3">正则表达式</div>
+  <button>点击切换class的有无</button>
+  <script>
+    var div = document.getElementsByTagName("div")[0];
+    var btn = document.getElementsByTagName("button")[0];
+
+
+    btn.onclick = function () {
+      if (hasClass(div, "div2")) {
+        removeClass(div, "div2");
+      } else {
+        addClass(div, "div2");
+      }
+    };
+
+    // 判断obj是否有此class
+    function hasClass(obj, cla) {
+      var pattern = new RegExp('\\b' + cls + '\\b'); /*  (^|\s)   (\s|$)  */
+
+      return pattern.test(obj.className);
+    }
+
+    //给 obj添加class
+    function addClass(obj, cla) {
+      if (!hasClass(obj, cls)) {
+        obj.className = obj.className + " " + cls;
+      }
+
+    }
+
+    //移除obj对应的class
+    function removeClass(obj, cls) {
+      if (hasClass(obj, cls)) {
+        var pattern = new RegExp('\\b' + cls + '\\b');
+        obj.className = obj.className.replace(pattern, "");
+      }
+    }
+  </script>
+</body>
+
+</html>

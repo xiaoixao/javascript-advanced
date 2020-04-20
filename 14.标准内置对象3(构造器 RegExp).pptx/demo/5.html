@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    //test()方法
+
+    var pattern = /box/;
+    var str = "This is a box!";
+    console.log(pattern.test(str)); //匹配成功返回true  匹配不成功返回false
+
+
+    //exec()方法
+
+    var pattern = /box/ig;
+    var str = "This is a Box!This is a box!";
+    console.log(pattern.exec(str));
+    console.log(pattern.exec(str));
+    console.log(pattern.exec(str));
+    console.log(pattern.exec(str));
+    console.log(pattern.exec(str));
+
+
+    var pattern = /box/ig;
+    var str = "This is a Box!This is a box!";
+    while (match = pattern.exec(str)) {
+      console.log(match[0]);
+    }
+  </script>
+</body>
+
+</html>

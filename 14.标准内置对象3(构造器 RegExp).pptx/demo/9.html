@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>split()方法</title>
+</head>
+
+<body>
+  <script>
+    //split()方法
+    //用一个指定的字符串或正则表达式，对原字符串进行拆分
+    // 返回拆得的子串数组
+
+    //空格拆分
+    var pattern = / /;
+    var str = "This is a box This is a box!";
+    console.log(str);
+    console.log(str.split(pattern));
+
+    //横杠 - 拆分
+    var pattern = /-/;
+    var str = "This-is-a-box-This-is-a-box!";
+    console.log(str);
+    console.log(str.split(pattern));
+
+    //指定数组返回个数
+    var pattern = /-/;
+    var str = "This-is-a-box-This-is-a-box!";
+    console.log(str);
+    console.log(str.split(pattern, 3));
+  </script>
+</body>
+
+</html>

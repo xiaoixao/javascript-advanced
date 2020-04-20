@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>转义字符</title>
+</head>
+
+<body>
+  <script>
+    //转义字符 双（单）引号里面的第一个 \ 识别成转义字符  解析之后不会在浏览器输出
+    //字符串
+    var str1 = "How are you?\nI'm fine!";
+    var str2 = "How are you?\\nI'm fine!";
+    var str3 = "How are you?\\\\nI'm fine!";
+    console.log(str1);
+    console.log(str2);
+    console.log(str3);
+
+    //匹配\
+    var pattern1 = /\\/;
+    var pattern2 = new RegExp('\\\\'); //先解析为字符串 再解析为正则
+    console.log(pattern1);
+    console.log(pattern2);
+  </script>
+</body>
+
+</html>

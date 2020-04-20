@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    var pattern = /(?!^)(?=(\d{3})+$)/g;
+    var str = "12345678";
+
+    var stt = str.replace(pattern, ",");
+
+    console.log(str);
+    console.log(stt);
+  </script>
+</body>
+
+</html>

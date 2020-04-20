@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>search()方法</title>
+</head>
+
+<body>
+  <script>
+    //search()方法  匹配到一次就结束
+    // 返回第一次出现匹配指定正则表达式子串的下标，若没有匹配则返回-1
+
+
+    var pattern = /this/;
+    var str = "This is a box this is a box!";
+    console.log(str);
+    console.log(str.search(pattern));
+
+    //未成功匹配  返回 -1
+    var pattern = /this/;
+    var str = "This is a box This is a box!";
+    console.log(str);
+    console.log(str.search(pattern));
+
+
+    //模仿test()方法返会true/false
+    function test(str, pattern) {
+      return !!(str.search(pattern) + 1);
+    }
+    var pattern = /this/;
+    var str = "This is a box This is a box!";
+    console.log(str);
+    console.log(test(str, pattern));
+  </script>
+</body>
+
+</html>
