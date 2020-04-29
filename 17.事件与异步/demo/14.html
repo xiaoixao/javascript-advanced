@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding: 50px;
+      }
+
+      button {
+        padding: 5px 10px;
+      }
+
+      div {
+        margin-top: 10px;
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="doBtn">do something</button>
+    <div id="div"></div>
+    <script>
+      var doBtn = document.getElementById('doBtn');
+      var div = document.getElementById('div');
+      function sleep(ms) {
+        //延时作用
+        var start = new Date();
+        while (new Date() - start <= ms) {}
+      }
+      doBtn.onclick = function () {
+        div.innerHTML = 'doing...please wait...';
+        setTimeout(function () {
+          sleep(3000); //延时3s
+          div.innerHTML = 'done';
+        }, 100);
+      };
+    </script>
+  </body>
+</html>

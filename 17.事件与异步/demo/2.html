@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button>我是按钮</button>
+    <script>
+      //第三种：DOM2模型
+      var button = document.getElementsByTagName('button')[0];
+
+      //指定事件名，不需要加 "on" 前缀
+      button.addEventListener('click', function fun1(e) {
+        //事件处理函数为匿名函数
+        console.log('DOM2模型1');
+        console.dir(e);
+      });
+
+      button.addEventListener('click', tell);
+      function tell() {
+        //事件处理函数有名字
+        console.log('DOM2模型2');
+      }
+
+      //绑定click第三个监听函数
+      button.addEventListener('click', function fun2() {
+        //事件处理函数为匿名函数
+        console.log('DOM2模型3');
+      });
+
+      //useCapture
+      //布尔值,指定事件是否在捕获或冒泡阶段执行
+    </script>
+  </body>
+</html>

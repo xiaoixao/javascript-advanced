@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul id="list">
+      <li id="one">do something</li>
+      <li id="two">do something</li>
+      <li id="three">do something</li>
+    </ul>
+    <script>
+      // bad (逐个 li 添加事件)
+      let item1 = document.getElementById('one');
+      let item2 = document.getElementById('two');
+      let item3 = document.getElementById('three');
+
+      item1.addEventListener(
+        'click',
+        function () {
+          // ...
+        },
+        false
+      );
+      item1.addEventListener(
+        'click',
+        function () {
+          //...
+        },
+        false
+      );
+      item1.addEventListener(
+        'click',
+        function () {
+          // ...
+        },
+        false
+      );
+
+      // event delegation (事件委托)
+      let list = document.getElementById('list');
+      list.addEventListener(
+        'click',
+        function (e) {
+          if (e.target && e.target.nodeName == 'LI') {
+            switch (
+              e.target.id //事件分流
+            ) {
+              case 'one':
+                // do something;
+                break;
+
+              case 'two':
+                //do something;
+                break;
+
+              case 'three':
+                // do something;
+                break;
+            }
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
