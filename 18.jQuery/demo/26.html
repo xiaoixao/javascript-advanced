@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="v_show">
+    <div class="v_caption">
+      <h2 class="cartoon" title="热门电影">热门电影</h2>
+
+      <div class="highlight_tip">
+        <span>1</span><span>2</span><span>3</span>
+      </div>
+      <div class="change_btn">
+        <span class="prev">上一页</span>
+        <span class="next">下一页</span>
+      </div>
+      <em><a href="#">更多>></a></em>
+    </div>
+    <div class="v_content">
+      <div class="v_content_list">
+        <ul>
+          <li><a href="#"><img src="images/img01.jpg" alt="寻龙诀" /></a>
+            <h4><a href="#">寻龙诀</a></h4><span>播放:<em>28,276</em></span>
+          </li>
+          <li><a href="#"><img src="images/img02.jpg" alt="冰川时代5" /></a>
+            <h4><a href="#">冰川时代5</a></h4><span>播放:<em>28,276</em></span>
+          </li>
+          <li><a href="#"><img src="images/img03.jpg" alt="真相禁区" /></a>
+            <h4><a href="#">真相禁区</a></h4><span>播放:<em>28,276</em></span>
+          </li>
+          <li><a href="#"><img src="images/img04.jpg" alt="大鱼海棠" /></a>
+            <h4><a href="#">大鱼海棠</a></h4><span>播放:<em>28,276</em></span>
+          </li>
+          <li><a href="#"><img src="images/img05.jpg" alt="x-MAX" /></a>
+            <h4><a href="#">x-MAX</a></h4><span>播放:<em>33,326</em></span>
+          </li>
+          <li><a href="#"><img src="images/img06.jpg" alt="盗墓笔记" /></a>
+            <h4><a href="#">盗墓笔记</a></h4><span>播放:<em>33,326</em></span>
+          </li>
+          <li><a href="#"><img src="images/img07.jpg" alt="熊猫功夫3" /></a>
+            <h4><a href="#">熊猫功夫3</a></h4><span>播放:<em>33,326</em></span>
+          </li>
+          <li><a href="#"><img src="images/img08.jpg" alt="惊天魔盗团" /></a>
+            <h4><a href="#">惊天魔盗团</a></h4><span>播放:<em>33,326</em></span>
+          </li>
+          <li><a href="#"><img src="images/img09.jpg" alt="老炮儿" /></a>
+            <h4><a href="#">老炮儿</a></h4><span>播放:<em>28,276</em></span>
+          </li>
+          <li><a href="#"><img src="images/img10.jpg" alt="美人鱼" /></a>
+            <h4><a href="#">美人鱼</a></h4><span>播放:<em>28,276</em></span>
+          </li>
+          <li><a href="#"><img src="images/img11.jpg" alt="碟仙2" /></a>
+            <h4><a href="#">碟仙2</a></h4><span>播放:<em>28,276</em></span>
+          </li>
+          <li><a href="#"><img src="images/img12.jpg" alt="绝地逃亡" /></a>
+            <h4><a href="#">绝地逃亡</a></h4><span>播放:<em>28,276</em></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(function () {
+      //初始化
+      var index = 0;
+      $(".highlight_tip").children().eq(index).addClass("current");
+      $(".v_content_list").animate({ left: '0px' }, "slow");
+      var length = Math.ceil($(".v_content_list").find("li").length / 4);
+      var width = $(".v_content").width();//只是数值，没有单位
+
+
+
+      $("span.next").click(function () {
+        index++;
+        index = index % length;
+        $(".highlight_tip").children().eq(index).addClass("current").siblings().removeClass("current");
+
+        if (!$(".v_content_list").is(":animated")) {
+          if (index == 0) {
+            $(".v_content_list").animate({ left: "0px" }, "slow");
+          } else {
+            $(".v_content_list").animate({ left: "-=" + width + "px" }, "slow");
+          }
+        }
+      });
+
+      $("span.prev").click(function () {
+        index--;
+        index = (index + length) % length;
+        $(".highlight_tip").children().eq(index).addClass("current").siblings().removeClass("current");
+        if (!$(".v_content_list").is(":animated")) {
+          if (index == (length - 1)) {
+            $(".v_content_list").animate({ left: -index * width + "px" }, "slow");
+          } else {
+            $(".v_content_list").animate({ left: "+=" + width + "px" }, "slow");
+          }
+        }
+      });
+    })
+  </script>
+</body>
+
+</html>

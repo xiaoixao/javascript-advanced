@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding-top: 30px;
+        padding-left: 100px;
+        height: 1000px;
+      }
+
+      div {
+        width: 400px;
+        height: 400px;
+        margin: 10px;
+        border: 1px solid red;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+      //DOM对象
+      var div = document.getElementsByTagName('div');
+      //点击div  背景颜色变为蓝色
+      for (var i = 0; i < div.length; i++) {
+        div[i].onclick = function () {
+          this.style.background = 'blue';
+        };
+      }
+
+      //jQuery 对象  集合
+      $('div').click(function () {
+        //DOM→jQuery：使用  $( )  包装
+        $(this).css('background', 'blue');
+      });
+
+      //下标从0开始 //jQuery→DOM
+
+      //jQuery 对象
+      var div = $('div');
+
+      //获取第一个div的内容
+      console.log(div[0].innerHTML);
+
+      //获取第二个div的内容
+      console.log(div.get(1).innerHTML);
+
+      //获取第三个div的内容
+      console.log(div[2].innerHTML);
+    </script>
+  </body>
+</html>

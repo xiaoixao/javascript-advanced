@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      body {
+        padding-left: 100px;
+        padding-top: 50px;
+        height: 1000px;
+      }
+      #fruit {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p title="选择你最喜欢的水果.">你最喜欢的水果是?</p>
+    <ul>
+      <li title="苹果">苹果</li>
+      <li title="橘子">橘子</li>
+      <li title="菠萝">菠萝</li>
+    </ul>
+    <script src="js/jquery.js"></script>
+    <script>
+      //获取p元素的title属性
+      console.log($('p').attr('title'));
+
+      //设置p元素的id属性
+      //$("p").attr("id","fruit");
+
+      //设置p元素的id属性和title属性
+      /*$("p").attr({
+        "id":"fruit",
+        "title":"我喜欢的水果有："
+    })*/
+
+      //删除 id 属性
+      //$("p").removeAttr("id");
+
+      //删除 id属性、title属性
+      //$("p").removeAttr("id title");
+    </script>
+  </body>
+</html>

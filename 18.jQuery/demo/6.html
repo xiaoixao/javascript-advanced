@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+    body {
+      padding-left: 100px;
+      padding-top: 50px;
+      height: 1000px;
+    }
+  </style>
+</head>
+
+<body>
+  <p>第一段</p>
+  <p>第二段</p>
+  <p>第三段</p>
+  <p>第四段</p>
+
+
+  <script src="js/jquery.js"></script>
+  <script>
+    //html()获取集合中第一个匹配元素的HTML内容
+    console.log($('p').html());
+
+    //获取第四个段落
+    console.log($('p:eq(3)').html());
+
+      //html(value)设置每一个匹配元素的HTML内容
+      //html(字符串)——内容设置都一样
+      // $('p').html('<strong>强调段落</strong>');
+  </script>
+
+  <form action="">
+    <input type="button" value="设置单选下拉框选中" /><br />
+    <input type="button" value="设置单选框和多选框选中" />
+
+    <br /><br />
+    <input type="radio" name="profession" value="radio1" /> 老师
+    <input type="radio" name="profession" value="radio2" /> 学生
+    <input type="radio" name="profession" value="radio3" /> 其他
+
+    <br />
+    <input type="checkbox" name="hobby" value="check1" /> 睡觉
+    <input type="checkbox" name="hobby" value="check2" /> 打球
+    <input type="checkbox" name="hobby" value="check3" /> 逛街
+    <input type="checkbox" name="hobby" value="check4" /> 旅游
+
+
+    <br /><br />
+    <select id="multiple" multiple="multiple" style="height:120px;">
+      <option>选择1号</option>
+      <option>选择2号</option>
+      <option>选择3号</option>
+      <option>选择4号</option>
+      <option>选择5号</option>
+    </select>
+  </form>
+  <script>
+    //val()设置匹配的元素集合中每个元素的值
+    //设置多选下拉框选中
+    $("input:eq(0)").click(function () {
+      $("#multiple").val(["选择2号", "选择3号"]);
+    });
+
+    //设置单选框和多选框选中
+    $("input:eq(1)").click(function () {
+      $(":checkbox").val(["check2", "check3"]);
+      $(":radio").val(["radio2"]);
+    });
+  </script>
+</body>
+
+</html>

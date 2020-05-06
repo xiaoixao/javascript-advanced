@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      body {
+        padding-left: 100px;
+        padding-top: 50px;
+        height: 1000px;
+      }
+
+      p {
+        width: 200px;
+      }
+
+      .red {
+        color: red;
+        background: greenyellow;
+      }
+
+      .green {
+        color: green;
+        font-size: 20px;
+      }
+
+      .blue {
+        color: blue;
+        padding: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>你最喜欢的水果是?</p>
+    <ul>
+      <li title="苹果">苹果</li>
+      <li title="橘子">橘子</li>
+      <li title="菠萝">菠萝</li>
+    </ul>
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+      //给p元素添加  red  样式
+      //$("p").addClass("red");
+
+      //给p元素添加  red  样式  green样式  blue样式
+      //$("p").addClass("red green blue");
+
+      // 样式合并
+      //样式覆盖 和style中书写顺序有关
+
+      //$("p").addClass("blue green red");
+
+      //给p元素移除  red  样式
+      //$("p").removeClass("red");
+
+      //给p元素移除  red  样式  green样式
+      //$("p").removeClass("red green");
+
+      //给p元素移除所有样式
+      //$("p").removeClass();
+
+      //判断p元素有没有red，有，删除；没有，添加
+      /* $("p").click(function () {
+         if($(this).hasClass("red")){
+             $(this).removeClass("red");
+         }else{
+             $(this).addClass("red");
+         }
+     });*/
+
+      //给p元素点击切换  red  有无
+      /* $("p").click(function(){
+     $(this).toggleClass("red");
+     })*/
+    </script>
+  </body>
+</html>
