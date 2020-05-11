@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding: 30px;
+        height: 1000px;
+      }
+
+      div,
+      span,
+      p {
+        width: 140px;
+        height: 140px;
+        margin: 5px;
+        background: #aaa;
+        border: #000 1px solid;
+        float: left;
+        font-size: 17px;
+      }
+
+      div.mini {
+        width: 55px;
+        height: 55px;
+        background-color: #aaa;
+        font-size: 12px;
+      }
+      input {
+        width: 250px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>基本选择器:</h3>
+
+    <!-- 控制按钮 -->
+    <input type="button" value="选择 id为 one 的元素." id="btn1" />
+    <br />
+    <input type="button" value="选择 class 为 mini 的所有元素." id="btn2" />
+    <input type="button" value="选择 元素名是 div 的所有元素." id="btn3" />
+    <br />
+    <input type="button" value="选择 所有的元素." id="btn4" />
+    <input type="button" value="选择 所有的span元素和id为two的元素." id="btn5" />
+    <br />
+
+    <input type="button" value="选择 body内的所有div元素." id="btn6" />
+    <input type="button" value="选择 body内第一代子元素是div的。" id="btn7" />
+
+    <br />
+    <br />
+
+    <!-- 测试的元素 -->
+    <div class="one" id="one">
+      id为one,class为one的div.
+      <div class="mini">class为mini</div>
+    </div>
+
+    <div class="one" id="two">
+      id为two,class为one的div.
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+    </div>
+
+    <div class="one">
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+    </div>
+
+    <div class="one">
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+      <div class="mini">class为mini</div>
+      <div class="mini" title="tesst">class为mini</div>
+    </div>
+
+    <span id="span">span元素.</span>
+
+    <script src="js/jquery.js"></script>
+    <script>
+      //选择 id为 one 的元素
+      $('#btn1').click(function () {
+        $('#one').css('background', '#bfa');
+      });
+      //选择 class 为 mini 的所有元素
+      $('#btn2').click(function () {
+        $('.mini').css('background', '#bfa');
+      });
+      //选择 元素名是 div 的所有元素
+      $('#btn3').click(function () {
+        $('div').css('background', '#bfa');
+      });
+      //选择 所有的元素
+      $('#btn4').click(function () {
+        $('*').css('background', '#bfa');
+      });
+      //选择 所有的span元素和id为two的div元素
+      $('#btn5').click(function () {
+        $('span,#two').css('background', '#bfa');
+      });
+
+      //选择 body内的所有div元素.
+      $('#btn6').click(function () {
+        $('body div').css('background', '#bbffaa');
+      });
+      //在body内的选择 元素名是div 的子元素.
+      $('#btn7').click(function () {
+        $('body > div').css('background', '#bbffaa');
+      });
+    </script>
+  </body>
+</html>

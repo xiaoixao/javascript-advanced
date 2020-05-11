@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding: 50px;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      div {
+        position: relative;
+        width: 400px;
+        height: 320px;
+        overflow: hidden;
+      }
+
+      ul.image {
+        position: relative;
+      }
+
+      ul.image li {
+        position: absolute;
+        left: 0;
+        opacity: 0;
+      }
+
+      ul.image li.opa {
+        opacity: 1;
+      }
+
+      .pre,
+      .next {
+        position: absolute;
+        top: 45%;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 40px;
+        color: red;
+        cursor: pointer;
+      }
+
+      .next {
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul id="image" class="image">
+        <li><img src="images/1.jpg" alt="" /></li>
+        <li><img src="images/2.jpg" alt="" /></li>
+        <li><img src="images/3.jpg" alt="" /></li>
+        <li><img src="images/4.jpg" alt="" /></li>
+        <li><img src="images/5.jpg" alt="" /></li>
+      </ul>
+      <div id="pre" class="pre"><</div>
+      <div id="next" class="next">></div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+      //初始化
+      var index = 0;
+      var t;
+      var length = $('ul li').length;
+
+      $('#image li').eq(index).addClass('opa');
+
+      //自动切换图片
+      setInterval(autoMove, 3000);
+      function autoMove() {
+        index++;
+        if (index >= length) index = 0;
+        changeTo(index);
+      }
+      function changeTo(index) {
+        $('#image li').eq(index).addClass('opa').siblings().removeClass('opa');
+      }
+      $('#pre').click(function () {
+        index--;
+        if (index < 0) index = length - 1;
+        changeTo(index);
+      });
+      $('#next').click(function () {
+        index++;
+        if (index >= length) index = 0;
+        changeTo(index);
+      });
+    </script>
+
+    <!--<script>
+    var ul = document.getElementById("image");
+    var li = ul.children;
+    var length = li.length;
+    var ind = 0;//控制下标
+    var pre = document.getElementById("pre");
+    var next = document.getElementById("next");
+    var t = setInterval(function () {
+        ind++;
+        if (ind >= length) ind = 0;
+        move(ind);
+    }, 3000);
+    pre.onclick = function () {
+        ind&#45;&#45;;
+        if (ind < 0) ind = length - 1;
+        move(ind);
+    };
+    next.onclick = function () {
+        ind++;
+        if (ind >= length) ind = 0;
+        move(ind);
+    };
+    function move(num) {
+        var opa = document.getElementsByClassName("opa")[0];
+        opa.className = "";
+        li[num].className = "opa";
+    }
+</script>-->
+  </body>
+</html>

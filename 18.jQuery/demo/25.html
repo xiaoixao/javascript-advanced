@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding: 100px;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      ul {
+        width: 972px;
+        height: 407px;
+        border: 4px solid red;
+        display: inline-flex;
+      }
+
+      li {
+        width: 108px;
+        height: 407px;
+        overflow: hidden;
+      }
+
+      img {
+        width: 538px;
+        height: 405px;
+        display: block;
+        border: 1px solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <!--手风琴效果-->
+
+    <ul>
+      <li><img src="images/ruili_img1.jpg" /></li>
+      <li><img src="images/ruili_img2.jpg" /></li>
+      <li><img src="images/ruili_img4.jpg" /></li>
+      <li><img src="images/ruili_img5.jpg" /></li>
+      <li><img src="images/ruili_img7.jpg" /></li>
+    </ul>
+
+    <!--手风琴结束-->
+
+    <script src="js/jquery.js"></script>
+    <script>
+      //初始化
+      $('li').eq(0).width('540px');
+      $('li').mouseover(function () {
+        $('li').stop(true, false);
+        $(this).animate({ width: '540px' }, 500).siblings().animate({ width: '108px' }, 500);
+      });
+    </script>
+  </body>
+</html>
