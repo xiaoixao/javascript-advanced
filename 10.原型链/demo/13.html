@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      function fun() {
-        this.a = 0;
-        this.b = function() {
-          console.log(this.a);
+        function fun() {
+            this.a = 0;
+            this.b = function() {
+                console.log(this.a);
+            };
+        }
+        fun.prototype = {
+            b: function() {
+                this.a = 20;
+                console.log(this.a);
+            },
+            c: function() {
+                this.a = 30;
+                console.log(this.a);
+            }
         };
-      }
-      fun.prototype = {
-        b: function() {
-          this.a = 20;
-          console.log(this.a);
-        },
-        c: function() {
-          this.a = 30;
-          console.log(this.a);
-        }
-      };
 
-      my_fun1 = {
-        a: 0,
-        b: function() {
-          console.log(this.a);
-        }
-      };
-      my_fun2 = {
-        a: 0,
-        b: function() {
-          console.log(this.a);
-        }
-      };
+        my_fun1 = {
+            a: 0,
+            b: function() {
+                console.log(this.a);
+            }
+        };
+        my_fun2 = {
+            a: 0,
+            b: function() {
+                console.log(this.a);
+            }
+        };
 
-      var my_fun1 = new fun();
-      my_fun1.b(); //0  私有方法	this=>my_fun
-      console.log(my_fun1.a); //0
-      my_fun1.c(); //30 公有方法	this=>my_fun this.a = 30（将私有属性a修改为30）
-      console.log(my_fun1.a); //30
+        var my_fun1 = new fun();
+        my_fun1.b(); //0  私有方法	this=>my_fun
+        console.log(my_fun1.a); //0
+        my_fun1.c(); //30 公有方法	this=>my_fun this.a = 30（将私有属性a修改为30）
+        console.log(my_fun1.a); //30
 
-      var my_fun2 = new fun();
-      console.log(my_fun2.a); //0
-      my_fun2.__proto__.c(); //30 this=>my_fun2.__proto__ 当前实例通过原型链在类的共有属性上增加了一个a:30
-      console.log(my_fun2.a); //0
-      console.log(my_fun2.__proto__.a); //30
+        var my_fun2 = new fun();
+        console.log(my_fun2.a); //0
+        my_fun2.__proto__.c(); //30 this=>my_fun2.__proto__ 当前实例通过原型链在类的共有属性上增加了一个a:30
+        console.log(my_fun2.a); //0
+        console.log(my_fun2.__proto__.a); //30
     </script>
-  </body>
+</body>
+
 </html>

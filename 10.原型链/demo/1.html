@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+
+<head lang="en">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      function Person(name, age) {
-        this.name = name;
-        this.age = age;
-      }
-      Person.prototype.sayHello = function() {
-        console.log("Hello,我的名字是" + this.name);
-      };
-      Person.prototype.sayAge = function() {
-        console.log("我今年" + this.age + "岁。");
-      };
-      var boy = new Person("Tom", 20);
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.sayHello = function() {
+            console.log("Hello,我的名字是" + this.name);
+        };
+        Person.prototype.sayAge = function() {
+            console.log("我今年" + this.age + "岁。");
+        };
+        var boy = new Person("Tom", 20);
 
-      // 属性覆写，屏蔽原型对象上的sayAge属性
-      boy.sayAge = function() {
-        var adult = this.age > 18 ? "成年。" : "未成年。";
-        console.log("我今年" + this.age + "岁," + adult);
-      };
-      boy.sayAge(); //自有属性
-      boy.sayHello(); //继承属性
+        // 属性覆写，屏蔽原型对象上的sayAge属性
+        boy.sayAge = function() {
+            var adult = this.age > 18 ? "成年。" : "未成年。";
+            console.log("我今年" + this.age + "岁," + adult);
+        };
+        boy.sayAge(); //自有属性
+        boy.sayHello(); //继承属性
     </script>
-  </body>
+</body>
+
 </html>

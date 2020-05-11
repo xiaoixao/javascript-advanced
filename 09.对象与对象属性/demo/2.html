@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      //修改Math对象的PI属性  修改成功？
-      console.log(Math.PI);
-      Math.PI = 3;
-      console.log(Math.PI);
+        //修改Math对象的PI属性  修改成功？
+        console.log(Math.PI);
+        Math.PI = 3;
+        console.log(Math.PI);
 
-      //修改自定义对象obj对象的PI属性  修改成功？
-      var obj = {
-        PI: 3.14
-      };
-      console.log(Math.PI);
-      obj.PI = 3;
-      console.log(Math.PI);
+        //修改自定义对象obj对象的PI属性  修改成功？
+        var obj = {
+            PI: 3.14
+        };
+        console.log(Math.PI);
+        obj.PI = 3;
+        console.log(Math.PI);
 
-      //遍历对象属性
-      var obj = {
-        PI: 3.14
-      };
-      obj.toString(); //可以成功访问？
-      for (var key in obj) {
-        if (key == "toString") {
-          //能否遍历出？
-          console.log(true);
-          break;
+        //遍历对象属性
+        var obj = {
+            PI: 3.14
+        };
+        obj.toString(); //可以成功访问？
+        for (var key in obj) {
+            if (key == "toString") {
+                //能否遍历出？
+                console.log(true);
+                break;
+            }
         }
-      }
     </script>
-  </body>
+</body>
+
 </html>

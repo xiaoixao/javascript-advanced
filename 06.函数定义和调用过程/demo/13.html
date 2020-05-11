@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      //案例1
-      var name = "global";
-      var a = 1;
-      function fn1(a) {
-        a++;
-        var obj = {
-          name: "fn1"
-        };
-        console.log(name);
-        console.log(a);
-      }
-      fn1(a);
-      fn1(2);
-      console.log(a);
+        //案例1
+        // var name = "global";
+        // var a = 1;
+        // function fn1(a) {
+        //   a++;
+        //   var obj = {
+        //     name: "fn1"
+        //   };
+        //   console.log(name);
+        //   console.log(a);
+        // }
+        // fn1(a);
+        // fn1(2);
+        // console.log(a);
 
-      //案例2
-      var a = 1;
-      function fn() {
-        var a = 10;
-        function fn1() {
-          var a = 20;
-          console.log(a);
+        //案例2
+        var a = 1;
+
+        function fn() {
+            var a = 10;
+
+            function fn1() {
+                var a = 20;
+                console.log(a);
+            }
+
+            function fn2() {
+                a++;
+                console.log(a);
+            }
+            fn1();
+            fn2();
+            fn1();
+            fn2();
         }
-        function fn2() {
-          a++;
-          console.log(a);
-        }
-        fn1();
-        fn2();
-        fn1();
-        fn2();
-      }
-      fn();
-      console.log(a);
+        fn();
+        console.log(a);
     </script>
-  </body>
+</body>
+
 </html>

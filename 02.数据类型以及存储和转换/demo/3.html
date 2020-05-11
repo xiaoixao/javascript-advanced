@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      //复制变量
-      var a = 20;
-      var b = a;
-      b = 30;
-      console.log(a);//?
+        //复制变量
+        var a = 20;
+        var b = a;
+        b = 30;
+        console.log(a); //?
 
-      var a = { x: 10, y: 20 };
-      var b = a;
-      b.x = 5;
-      console.log(a.x);//?
+        var a = {
+            x: 10,
+            y: 20
+        };
+        var b = a;
+        b.x = 5;
+        console.log(a.x); //?
 
-      //比较变量
-      var a = 20;
-      var b = 20;
-      console.log(a === b);//?
-      a = b;
-      console.log(a === b);//?
+        //比较变量
+        var a = 20;
+        var b = 20;
+        console.log(a === b); //?
+        a = b;
+        console.log(a === b); //?
 
-      var a = { x: 10, y: 20 };
-      var b = { x: 10, y: 20 };
-      console.log(a === b);//?
-      a = b;
-      console.log(a === b);//?
+        var a = {
+            x: 10,
+            y: 20
+        };
+        var b = {
+            x: 10,
+            y: 20
+        };
+        console.log(a === b); //?
+        a = b;
+        console.log(a === b); //?
 
-      //参数传递
-      function foo(num, obj) {
-        num = 20;
-        obj.value = "hello world";
-      }
-      var num1 = 10;
-      var obj1 = {
-        value: "hello"
-      };
-      foo(num1, obj1);
-      console.log(num1); //?
-      console.log(obj1); //?
-
-
-      
+        //参数传递
+        function foo(num, obj) {
+            num = 20;
+            obj.value = "hello world";
+        }
+        var num1 = 10;
+        var obj1 = {
+            value: "hello"
+        };
+        foo(num1, obj1);
+        console.log(num1); //?
+        console.log(obj1); //?
     </script>
-  </body>
+</body>
+
 </html>

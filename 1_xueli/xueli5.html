@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>RegExp</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var students = [{
+        id: 11,
+        name: '小张',
+        score: 80
+    }, {
+        id: 22,
+        name: '小王',
+        score: 95
+    }, {
+        id: 33,
+        name: '小李',
+        score: 50
+    }, {
+        id: 44,
+        name: '小刘',
+        score: 45
+    }, {
+        id: 55,
+        name: '小徐',
+        score: 84
+    }, {
+        id: 66,
+        name: '小红',
+        score: 78
+    }, {
+        id: 77,
+        name: '小白',
+        score: 100
+    }, ];
+
+
+
+    //任务1： 获取最高score值
+    for (var i = 0; i < students.length; i++) {
+        // console.log(students[i]);
+        for (var j = 0; j < students.length - i - 1; j++) {
+            // console.log(students[j]);
+
+            var temp;
+            if (students[j].score < students[j + 1].score) {
+                temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+    console.log("最高score值是" + students[0].score);
+
+
+    //任务2： 判断是否包含不及格学生（小于60不及格）（包含打印true,不包含打印false）
+    // var isPass = students.some(function(e) {
+    //     return e.score < 60;
+    // })
+    // console.log("是否包含不及格学生" + isPass);
+
+
+
+    //任务3.  求所有学生的平均分
+    var total = 0;
+    for (var i = 0; i < students.length; i++) {
+        total += students[i].score;
+    }
+    console.log("所有学生的平均分是" + total / students.length)
+
+    //任务4.  找出不及格学生的所有名字
+    var scores;
+    for (var i = 0; i < students.length; i++) {
+        scores = students[i].score;
+        if (scores < 60) {
+            console.log("不及格学生的名字有" + students[i].name);
+        }
+    }
+
+    //任务5.  按成绩从高到低排序
+    for (var key in students) {
+        console.log(students[key]);
+    }
+</script>
+
+</html>

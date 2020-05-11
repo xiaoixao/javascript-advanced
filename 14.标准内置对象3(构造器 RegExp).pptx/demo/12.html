@@ -2,34 +2,35 @@
 <html>
 
 <head lang="en">
-  <meta charset="UTF-8">
-  <title>锚字符</title>
+    <meta charset="UTF-8">
+    <title>锚字符</title>
 </head>
 
 <body>
-  <script>
-    //单词:是指由\w即[a-zA-Z0-9_]组成的字符串(字母数字下划线)
-    //边界:是指一个位置，而不是某一个具体的字符，那什么是位置，那就是每个单词之间以及字符串首尾
+    <script>
+        //单词:是指由\w即[a-zA-Z0-9_]组成的字符串(字母数字下划线)
+        //边界:是指一个位置，而不是某一个具体的字符，那什么是位置，那就是每个单词之间以及字符串首尾
 
 
-    //   \b	  匹配字符串的边界  开头或者结尾
-    //var pattern = /8\b/mg;
-    //var pattern = /\b8/mg;
-    var str = '8pattern8\n8pattern8';
-    console.log(str.replace(pattern, "$"));
+        //   \b	  匹配字符串的边界  开头或者结尾
+        //var pattern = /8\b/mg;
+        //var pattern = /\b8/mg;
+        var str = '8pattern8\n8pattern8';
+        console.log(str.replace(pattern, "$"));
 
-    //   \B	  匹配字符串的非边界
-    // var pattern = /8\B/g;
-    var pattern = /\B8/g;
-    var str = '8pattern8-8pattern8';
-    //var str = '8pattern8_8pattern8';
-    console.log(str.replace(pattern, "$"));
+        //   \B	  匹配字符串的非边界
+        // var pattern = /8\B/g;
+        var pattern = /\B8/g;
+        var str = '8pattern8-8pattern8';
+        //var str = '8pattern8_8pattern8';
+        console.log(str.replace(pattern, "$"));
 
-    // 将文本中的单词 cat 换成 dog
-    var sentence = "You shouldn't let that cat scattered kids' food all over the room.";
-    var pattern = /\bcat\b/g;
-    sentence.replace(pattern, "dog");
-  </script>
+        // 将文本中的单词 cat 换成 dog
+        var sentence = "You shouldn't let that cat scattered kids' food all over the room.";
+        // var pattern = /\bcat\b/g;
+        var pattren = new RegExp("\\bcat\\b", 'g');
+        sentence.replace(pattern, "dog");
+    </script>
 </body>
 
 </html>

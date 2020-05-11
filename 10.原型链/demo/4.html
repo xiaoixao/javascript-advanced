@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      //获取原型对象
-      Object.getPrototypeOf(Object); //Function.prototype
-      Object.__proto__ === Function.prototype; // true
+        //获取原型对象
+        Object.getPrototypeOf(Object); //Function.prototype
+        Object.__proto__ === Function.prototype; // true
 
-      Object.getPrototypeOf(Function); //Function.prototype
-      Function.__proto__ === Function.prototype; // true
+        Object.getPrototypeOf(Function); //Function.prototype
+        Function.__proto__ === Function.prototype; // true
 
-      var obj = new Object();
-      Object.getPrototypeOf(obj) === Object.prototype; // true
-      obj.__proto__ === Object.prototype; // true
-      Object.getPrototypeOf({}) === Object.prototype; // true
+        var obj = new Object();
+        Object.getPrototypeOf(obj) === Object.prototype; // true
+        obj.__proto__ === Object.prototype; // true
+        Object.getPrototypeOf({}) === Object.prototype; // true
 
-      //设置原型对象
-      function Fn() {}
-      var obj1 = Object.create(Fn);
-      Object.getPrototypeOf(obj1);
-      obj1.__proto__ === Fn;
+        //设置原型对象
+        function Fn() {}
+        var obj1 = Object.create(Fn);
+        Object.getPrototypeOf(obj1);
+        obj1.__proto__ === Fn;
 
-      //检测原型对象
-      //isPrototypeOf() 方法用于测试一个对象是否存在于另一个对象的原型链上。
-      function Foo() {}
-      function Bar() {}
-      function Baz() {}
+        obj = {
+            name: 'Tom'
+        }
+        var obj1 = new obj();
+        obj1.__proto__ == obj;
 
-      Bar.prototype = Object.create(Foo.prototype);
-      Baz.prototype = Object.create(Bar.prototype);
+        //检测原型对象
+        //isPrototypeOf() 方法用于测试一个对象是否存在于另一个对象的原型链上。
+        function Foo() {}
 
-      var baz = new Baz();
+        function Bar() {}
 
-      console.log(Baz.prototype.isPrototypeOf(baz)); // true
-      console.log(Bar.prototype.isPrototypeOf(baz)); // true
-      console.log(Foo.prototype.isPrototypeOf(baz)); // true
-      console.log(Function.prototype.isPrototypeOf(baz)); // false
-      console.log(Object.prototype.isPrototypeOf(baz)); // true
+        function Baz() {}
+
+        Bar.prototype = Object.create(Foo.prototype);
+        Baz.prototype = Object.create(Bar.prototype);
+
+        var baz = new Baz();
+
+        console.log(Baz.prototype.isPrototypeOf(baz)); // true
+        console.log(Bar.prototype.isPrototypeOf(baz)); // true
+        console.log(Foo.prototype.isPrototypeOf(baz)); // true
+        console.log(Function.prototype.isPrototypeOf(baz)); // false
+        console.log(Object.prototype.isPrototypeOf(baz)); // true
     </script>
-  </body>
+</body>
+
 </html>

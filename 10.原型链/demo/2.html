@@ -1,46 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+
+<head lang="en">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
-    <script>
-      var obj = {
-        //自有方法
-        name: "Lily",
-        age: 20,
-        hobby: "swimming"
-      };
-      //继承方法 可枚举属性
-      obj.__proto__.sayName = function() {
-        console.log("Hello,我的名字是" + this.name);
-      };
-      Object.defineProperty(obj, "married", {
-        value: false,
-        writable: true,
-        enumerable: false, //不可枚举
-        configurable: false
-      });
+<body>
+    <a id="hype">超链接</a>
+    <img id="img" src="../images/原型链.png">
+</body>
+<script>
+    var hype = document.getElementById("hype");
+    var img = document.getElementById("img");
+    console.log(hype.__proto__);
+    console.log(hype.__proto__.__proto__);
+    console.log(hype.__proto__.__proto__.__proto__);
+    console.log(hype.__proto__.__proto__.__proto__.__proto__);
+    console.log(hype.__proto__.__proto__.__proto__.__proto__.__proto__);
+    console.log(hype.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__);
+    console.log(hype.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__);
 
-      //hasOwnProperty定义在原型对象上  所用实例都可以访问
-      obj.hasOwnProperty("name"); //true
-      obj.hasOwnProperty("toString"); //false
+    // console.log(img.__proto__);
+    // console.log(img.__proto__.__proto__);
+    // console.log(img.__proto__.__proto__.__proto__);
+    // console.log(img.__proto__.__proto__.__proto__.__proto__);
+    // console.log(img.__proto__.__proto__.__proto__.__proto__.__proto__);
+    // console.log(img.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__);
+    // console.log(img.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__);
 
-      //getOwnPropertyNames定义在Object对象上 是静态属性 只能够通过Object构造函数使用
-      Object.getOwnPropertyNames(obj);
 
-      console.log("name" in obj); //true
-      console.log("married" in obj); //true
-      console.log("sayName" in obj); //true
+    // var obj = {
+    //     //自有方法  可枚举
+    //     name: "Lily",
+    //     age: 20,
+    //     hobby: "swimming"
+    // };
+    // //继承方法 可枚举属性
+    // //object.prototype
+    // obj.__proto__.sayName = function() {
+    //     console.log("Hello,我的名字是" + this.name);
+    // };
+    // Object.defineProperty(obj, "married", {
+    //     value: false,
+    //     writable: true,
+    //     enumerable: false, //不可枚举
+    //     configurable: false
+    // });
 
-      //遍历所有可枚举属性  为什么没有toString属性呢？
-      for (var i in obj) {
-        console.log(i);
-      }
-    </script>
-  </body>
+    // //hasOwnProperty定义在原型对象上  所用实例都可以访问
+    // obj.hasOwnProperty("name"); //true
+    // obj.hasOwnProperty("toString"); //false
+
+    // //getOwnPropertyNames定义在Object对象上 是静态属性 只能够通过Object构造函数使用
+    // //["name", "age", "hobby", "married"]
+    // Object.getOwnPropertyNames(obj);
+
+    // console.log("name" in obj); //true
+    // console.log("married" in obj); //true
+    // console.log("sayName" in obj); //true
+
+    // //遍历所有可枚举属性  为什么没有toString属性呢？
+    // for (var i in obj) {
+    //     console.log(i);
+    // }
+
+
+
+    // function f1() {};
+    // console.log(f1 instanceof Function);
+    // console.log(f1 instanceof Object);
+    // console.log(Function instanceof Object);
+    // console.log(Object instanceof Function);
+
+    // String.prototype.repeat = String.prototype.repeat || function(n) {
+    //     var str = '';
+    //     for (var i = 0; i < n; i++) {
+    //         str = str + this;
+    //     }
+    //     return str;
+    // };
+    // console.log('hello'.repeat(0));
+
+    // function repeat(n) {
+    //     var str = '';
+    //     for (var i = 0; i < n; i++) {
+    //         str = str + this;
+    //     }
+    //     return str;
+    // }
+    // console.log('hello'.repeat(2));
+
+    // var F = function() {};
+    // Object.prototype.a = function() {
+    //     console.log('a()');
+    // }
+    // Function.prototype.b = function() {
+    //     console.log('b()');
+    // }
+    // var f = new F();
+    // F.a();//a()
+    // F.b();//b()
+    // f.a();//a()
+    // f.b();//报错
+</script>
+
+
 </html>

@@ -1,79 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      //隐式转换
-      var a = 2;
-      var b = "3";
-      var c = a + b;
-      console.log(c, typeof c);
+        //隐式转换
+        var a = 2;
+        var b = "3";
+        var c = a + b;
+        console.log(c, typeof c);
 
-      var a = 2;
-      var b = String(a);
-      console.log(a, typeof a);
-      console.log(b, typeof b);
-
-
+        var a = 2;
+        var b = String(a);
+        console.log(a, typeof a); //2 "number"
+        console.log(b, typeof b); //2 string
 
 
+        //隐式转换
+        console.log(1 + true); //2
+        console.log(1 + undefined); // NaN
+        console.log(1 + null); //1
+        console.log(1 * "123.4"); //123.4
+        console.log(1 * "123.4abc"); //NaN
+        console.log("2" > 10); //false
+        console.log(NaN == NaN); //false
 
 
+        //选择题
+        var a;
+        if (a == a) {
+            console.log(a * 1);
+        } else {
+            console.log(a + 1); //NaN
+        }
 
 
-      //隐式转换
-      console.log(1 + true); //2
-      console.log(1 + undefined); // NaN
-      console.log(1 + null); //1
-      console.log(1 * "123.4"); //123.4
-      console.log(1 * "123.4abc"); //NaN
-      console.log("2" > 10); //false
-      console.log(NaN == NaN); //false
-
-
-
-
-
-
-      //选择题
-      var a;
-      if (a == a) {
-        console.log(a * 1);
-      } else {
-        console.log(a + 1);
-      }
-
-
-
-
-
-
-
-
-
-
-
-      //字符串
-      var a = 1;
-      var b = "2";
-      var c = 3;
-      console.log(a + b + c);
-      console.log(a + c + b);
-      console.log(b + c + a);
-
-
-
-
-
-
-
-      
+        //字符串
+        var a = 1;
+        var b = "2";
+        var c = 3;
+        console.log(a + b + c); //123
+        console.log(a + c + b); //42
+        console.log(b + c + a); //231
     </script>
-  </body>
+</body>
+
 </html>

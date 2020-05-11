@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
+    <title>设置属性标识符1</title>
+</head>
 
-  <body>
+<body>
     <script>
-      var obj = {};
-      var descriptor = {};
-      // 默认没有 enumerable，没有 configurable，没有 writable
-      descriptor.value = "static";
-      Object.defineProperty(obj, "key1", descriptor);
+        var obj = {};
+        var descriptor = {};
+        // 默认没有 enumerable，没有 configurable，没有 writable
+        descriptor.value = "static";
+        Object.defineProperty(obj, "key1", descriptor);
 
-      // 显式
-      Object.defineProperty(obj, "key2", {
-        enumerable: false,
-        configurable: false,
-        writable: false,
-        value: "static"
-      });
+        // 显式
+        Object.defineProperty(obj, "key2", {
+            enumerable: false,
+            configurable: false,
+            writable: false,
+            value: "static"
+        });
 
-      obj.key2 = "123";
-      console.log(obj.key2); //static
-      for (var i in obj) {
-        console.log(i);
-      }
+        obj.key2 = "123";
+        console.log(obj.key2); //static
+        for (var i in obj) {
+            console.log(i);
+        }
     </script>
-  </body>
+</body>
+
 </html>

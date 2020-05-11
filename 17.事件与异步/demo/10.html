@@ -1,107 +1,109 @@
 <!DOCTYPE html>
 <html>
-  <head lang="en">
+
+<head lang="en">
     <meta charset="UTF-8" />
     <title>事件委托</title>
     <style>
-      * {
-        padding: 0;
-        margin: 0;
-      }
-
-      body {
-        padding: 100px 0 0 100px;
-      }
-
-      td {
-        width: 80px;
-      }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            padding: 100px 0 0 100px;
+        }
+        
+        td {
+            width: 80px;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <table border="1" cellspacing="0">
-      <tr>
-        <td>
-          <button>删除本行0</button>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          <button>删除本行1</button>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          <button>删除本行2</button>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          <button>删除本行3</button>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          <button>删除本行4</button>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          <button>删除本行5</button>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          <button>删除本行6</button>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+        <tr>
+            <td>
+                <button>删除本行0</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <button>删除本行1</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <button>删除本行2</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <button>删除本行3</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <button>删除本行4</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <button>删除本行5</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <button>删除本行6</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
     </table>
     <script>
-      var table = document.getElementsByTagName('table')[0];
-      var tbody = document.getElementsByTagName('tbody')[0];
-      var button = document.getElementsByTagName('button');
+        var table = document.getElementsByTagName('table')[0];
+        var tbody = document.getElementsByTagName('tbody')[0];
+        var button = document.getElementsByTagName('button');
 
-      // for(var i=0;i<button.length;i++){
-      //     button[i].onclick=function(){
-      //         var tr = this.parentNode.parentNode;
-      //         tr.parentNode.removeChild(tr);
-      //        // tbody.removeChild(tr);
-      //     }
-      // }
+        // for(var i=0;i<button.length;i++){
+        //     button[i].onclick=function(){
+        //         var tr = this.parentNode.parentNode;
+        //         tr.parentNode.removeChild(tr);
+        //        // tbody.removeChild(tr);
+        //     }
+        // }
 
-      tbody.onclick = function (event) {
-        console.log(this);
-        console.log(event.target); //触发的元素
-        console.log(event.currentTarget); //事件处理函数绑定在哪一个元素上
+        tbody.onclick = function(event) {
+            console.log(this);
+            console.log(event.target); //触发的元素
+            console.log(event.currentTarget); //事件处理函数绑定在哪一个元素上
 
-        var target = event.target.nodeName.toLowerCase();
-        if (target == 'button') {
-          var tr = event.target.parentNode.parentNode;
-          this.removeChild(tr);
-        }
-      };
+            var target = event.target.nodeName.toLowerCase();
+            if (target == 'button') {
+                var tr = event.target.parentNode.parentNode;
+                this.removeChild(tr);
+            }
+        };
     </script>
-  </body>
+</body>
+
 </html>

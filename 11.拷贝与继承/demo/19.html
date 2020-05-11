@@ -1,46 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>寄生式继承</title>
 </head>
 
 <body>
-  <script>
-    //父级构造函数
-    function SuperType(name) {
-      this.name = name;
-      this.colors = ["red", "green", "blue"];
-    }
-    //父级原型对象
-    SuperType.prototype.method = function () {
-      console.log(this.name);
-      console.log(this.colors);
-    };
+    <script>
+        //父级构造函数
+        function SuperType(name) {
+            this.name = name;
+            this.colors = ["red", "green", "blue"];
+        }
+        //父级原型对象
+        SuperType.prototype.method = function() {
+            console.log(this.name);
+            console.log(this.colors);
+        };
 
-    //子级构造函数
-    function SubType(name) {}
+        //子级构造函数
+        function SubType(name) {}
 
-    //寄生式继承
-    function createAnother(obj) {
-      var tempObject = Object.create(obj); // 通过调用函数创建一个新对象
-      
-      tempObject.sayHi = function () { //以某种方式增强或丰富这个对象
-        console.log("hi");
-      };
-      return tempObject; //返回这个对象
-    }
+        //寄生式继承
+        function createAnother(obj, construction) {
+            var tempObject = Object.create(obj); // 通过调用函数创建一个新对象
+            tempObject.constructor = constructor;
 
-    //子级原型对象
-    SubType.prototype = createAnother(SuperType.prototype);
+            tempObject.sayHi = function() { //以某种方式增强或丰富这个对象
+                console.log("hi");
+            };
+            return tempObject; //返回这个对象
+        }
 
-    var instance1 = new SubType();
-    instance1.sayHi();
-    instance1.method();
-  </script>
+        //子级原型对象
+        SubType.prototype = createAnother(SuperType.prototype, SubType);
+
+        var instance1 = new SubType();
+        instance1.sayHi();
+        instance1.method();
+    </script>
 </body>
 
 </html>

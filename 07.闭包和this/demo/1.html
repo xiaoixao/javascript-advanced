@@ -1,96 +1,101 @@
 <!DOCTYPE html>
 <html>
-  <head lang="en">
+
+<head lang="en">
     <meta charset="UTF-8" />
     <title></title>
     <style>
-      * {
-        padding: 0;
-        margin: 0;
-      }
-
-      li {
-        list-style: none;
-      }
-
-      body {
-        padding-top: 50px;
-        text-align: center;
-      }
-
-      div {
-        width: 400px;
-        height: 350px;
-        border: 5px solid red;
-        margin: 0 auto;
-      }
-
-      ul {
-        display: flex;
-      }
-
-      li {
-        width: 100px;
-        text-align: center;
-        height: 50px;
-        line-height: 50px;
-        cursor: pointer;
-      }
-
-      li.active {
-        background: rgba(0, 0, 0, 0.2);
-      }
-
-      p {
-        text-align: center;
-        margin-top: 100px;
-        font-size: 44px;
-      }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        body {
+            padding-top: 50px;
+            text-align: center;
+        }
+        
+        div {
+            width: 400px;
+            height: 350px;
+            border: 5px solid red;
+            margin: 0 auto;
+        }
+        
+        ul {
+            display: flex;
+        }
+        
+        li {
+            width: 100px;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        
+        li.active {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        p {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 44px;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div>
-      <ul>
-        <li class="active">导航0</li>
-        <li>导航1</li>
-        <li>导航2</li>
-        <li>导航3</li>
-      </ul>
-      <p id="contents">点击了0</p>
+        <ul>
+            <li class="active">导航0</li>
+            <li>导航1</li>
+            <li>导航2</li>
+            <li>导航3</li>
+        </ul>
+        <p id="contents">点击了0</p>
     </div>
     <script>
-      //练习
-      var tabs = document.getElementsByTagName("li");
-      var contents = document.getElementById("contents");
-      for (var i = 0; i < tabs.length; i++) {
-        tabs[i].onclick = function() {
-          for (var j = 0; j < tabs.length; j++) {
-            tabs[j].className = "";
-          }
-          this.className = "active";
+        //练习
+        var tabs = document.getElementsByTagName("li");
+        var contents = document.getElementById("contents");
+        for (var i = 0; i < tabs.length; i++) {
+            ! function(i) {
+                tabs[i].onclick = function() {
+                    for (var j = 0; j < tabs.length; j++) {
+                        tabs[j].className = "";
+                    }
+                    // this.className = "active";
+                    contents.innerHTML = "点击了" + i;
+                };
+            }(i)
+
+        }
+        /*
+        var i = 0;
+        tabs[0].onclick = function() {
           contents.innerHTML = "点击了" + i;
         };
-      }
-      /*
-      var i = 0;
-      tabs[0].onclick = function() {
-        contents.innerHTML = "点击了" + i;
-      };
-      i++;
-      tabs[1].onclick = function() {
-        contents.innerHTML = "点击了" + i;
-      };
-      i++;
-      tabs[2].onclick = function() {
-        contents.innerHTML = "点击了" + i;
-      };
-      i++;
-      tabs[3].onclick = function() {
-        contents.innerHTML = "点击了" + i;
-      };
-      i++; //4
-      */
+        i++;
+        tabs[1].onclick = function() {
+          contents.innerHTML = "点击了" + i;
+        };
+        i++;
+        tabs[2].onclick = function() {
+          contents.innerHTML = "点击了" + i;
+        };
+        i++;
+        tabs[3].onclick = function() {
+          contents.innerHTML = "点击了" + i;
+        };
+        i++; //4
+        */
     </script>
-  </body>
+</body>
+
 </html>

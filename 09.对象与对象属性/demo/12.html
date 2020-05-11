@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
+<head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,25 +9,26 @@
 </head>
 
 <body>
-    <script>
-        var salary = {
-            arr: [],
-            set wage(value) {
-                if (typeof value === "number" && !isNaN(value)) {
-                    this.arr.push(value);
-                } else {
-                    alert("输入有误，请改正");
-                }
-            },
-            get wage() {
-                var sum = 0;
-                for (var i = 0; i < this.arr.length; i++) {
-                    sum += this.arr[i];
-                }
-                return sum;
-            }
-        };
-    </script>
+
 </body>
+<script>
+    var salary = {
+        arr: [],
+        set wage(value) {
+            if (typeof value === "number" && !isNaN(value)) {
+                this.arr.push(value);
+            } else {
+                alert("输入有误，请改正");
+            }
+        },
+        get wage() {
+            var sum = 0;
+            for (var i = 0; i < this.arr.length; i++) {
+                sum += this.arr[i];
+            }
+            return sum;
+        }
+    };
+</script>
 
 </html>

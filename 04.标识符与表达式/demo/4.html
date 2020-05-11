@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      /***使用 || 来设置函数参数的默认值***/
+        /***使用 || 来设置函数参数的默认值***/
 
-      //定义一个计算圆面积的函数area_of_circle()，它有两个参数：
-      //r: 表示圆的半径；
-      //pi: 表示π的值，如果不传，则默认3.14
+        //定义一个计算圆面积的函数area_of_circle()，它有两个参数：
+        //r: 表示圆的半径；
+        //pi: 表示π的值，如果不传，则默认3.14
 
-      function area_of_circle(r, pi) {
-        var temp = 3.14;
-        if (arguments.length > 1) {
-          temp = pi;
+        function area_of_circle(r, pi) {
+            var temp = 3.14;
+            if (arguments.length > 1) {
+                temp = pi;
+            }
+            return temp * r * r;
         }
-        return temp * r * r;
-      }
 
-      function area_of_circle(r, pi) {
-        //补全代码
-        return r*r*(pi||3.14);
-      }
+        function area_of_circle(r, pi) {
+            //补全代码
+            return r * r * (pi || 3.14);
+        }
 
-      /***使用 && 防止运行报错***/
-      //定时5秒完成任务，如果有回调函数执行
-      function animate(callback) {
-        setTimeout(function() {
-          //do something
-          var a=1;
-          //....
-          callback && callback();
-          // callback && typeof callback === 'function' && callback();
-        }, 5000);
-      }
+        /***使用 && 防止运行报错***/
+        //定时5秒完成任务，如果有回调函数执行
+        function animate(callback) {
+            setTimeout(function() {
+                //do something
+                var a = 1;
+                //....
+                callback && callback();
+                // callback && typeof callback === 'function' && callback();
+            }, 5000);
+        }
 
 
 
-      /***使用 &&和|| 可用来实现条件语句***/
-      var score = 76;
-      if (score > 90) {
-        console.log("优");
-      } else if (score > 75) {
-        console.log("良");
-      } else if (score > 60) {
-        console.log("及格");
-      } else {
-        console.log("不及格");
-      }
+        /***使用 &&和|| 可用来实现条件语句***/
+        var score = 76;
+        if (score > 90) {
+            console.log("优");
+        } else if (score > 75) {
+            console.log("良");
+        } else if (score > 60) {
+            console.log("及格");
+        } else {
+            console.log("不及格");
+        }
 
-      //通过&&和||的组合实现如上功能，注：小括号优先级最高
-      console.log(
-        (score > 90 && "优") ||
-        (score > 75 && "良") ||
-        (score > 60 && "及格") ||
-        "不及格"
-      );
-
-     
+        //通过&&和||的组合实现如上功能，注：小括号优先级最高
+        console.log(
+            (score > 90 && "优") ||
+            (score > 75 && "良") ||
+            (score > 60 && "及格") ||
+            "不及格"
+        );
     </script>
-  </body>
+</body>
+
 </html>

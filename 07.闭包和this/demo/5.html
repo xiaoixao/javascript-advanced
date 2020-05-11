@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      var obj = {
-        name: "Tom"
-      };
-      function Fun(name) {
-        this.name = name;
-        console.log(this.name);
-      }
-      var FunBind = Fun.bind(obj);
-      var instance = new FunBind("Lily");
-      console.log(instance);
+        var obj = {
+            name: "Tom"
+        };
 
-      //new优先级比显示绑定高
+        function Fun(name) {
+            this.name = name;
+            console.log(this.name);
+        }
+        var FunBind = Fun.bind(obj);
+        var instance = new FunBind("Lily");
+        console.log(instance);
+
+        //new优先级比显示绑定高
     </script>
-  </body>
+</body>
+
 </html>

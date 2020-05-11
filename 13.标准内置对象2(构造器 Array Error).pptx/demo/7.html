@@ -1,138 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 
 <body>
-  <script>
-    //ReferenceError（引用错误） 当你尝试引用一个未被定义的变量时，将会抛出一个 ReferenceError 。
+    <script>
+        //ReferenceError（引用错误） 当你尝试引用一个未被定义的变量时，将会抛出一个 ReferenceError 。
 
-    //捕获一个 ReferenceError
-    try {
-      var a = undefinedVariable;
-    } catch (e) {
-      console.log(e instanceof ReferenceError); // true
-      console.log(e.message); // "undefinedVariable is not defined"
-      console.log(e.name); // "ReferenceError"
-      console.log(e.stack); // "ReferenceError: undefinedVariable is not defined at <anonymous>:2:21"
-    }
-
-
-
-    //例: 创建一个 ReferenceError
-    try {
-      throw new ReferenceError('Hello');
-    } catch (e) {
-      console.log(e instanceof ReferenceError); // true
-      console.log(e.message); // "Hello"
-      console.log(e.name); // "ReferenceError
-      console.log(e.stack); // "ReferenceError: Hello at <anonymous>:2:19"
-    }
+        //捕获一个 ReferenceError
+        try {
+            var a = undefinedVariable;
+        } catch (e) {
+            console.log(e instanceof ReferenceError); // true
+            console.log(e.message); // "undefinedVariable is not defined"
+            console.log(e.name); // "ReferenceError"
+            console.log(e.stack); // "ReferenceError: undefinedVariable is not defined at <anonymous>:2:21"
+        }
 
 
 
-    //TypeError（类型错误） 对象用来表示值的类型非预期类型时发生的错误。
-
-    //捕获类型错误
-    try {
-      null.f();
-    } catch (e) {
-      console.log(e instanceof TypeError); // true
-      console.log(e.message); // "Cannot read property 'f' of null"
-      console.log(e.name); // "TypeError"
-      console.log(e.stack);
-    }
-
-    //创建一个类型错误
-    try {
-      throw new TypeError('Hello');
-    } catch (e) {
-      console.log(e instanceof TypeError); // true
-      console.log(e.message); // "Hello"
-      console.log(e.name); // "TypeError"
-      console.log(e.stack);
-    }
-
-
-    //RangeError对象标明一个错误，当一个值不在其所允许的范围或者集合中。
-
-    try {
-      var a = new Array(-1);
-    } catch (e) {
-      console.log(e instanceof RangeError); // true
-      console.log(e.message); // "Invalid array length"
-      console.log(e.name); // "RangeError"
-      console.log(e.stack);
-    }
+        //例: 创建一个 ReferenceError
+        try {
+            throw new ReferenceError('Hello');
+        } catch (e) {
+            console.log(e instanceof ReferenceError); // true
+            console.log(e.message); // "Hello"
+            console.log(e.name); // "ReferenceError
+            console.log(e.stack); // "ReferenceError: Hello at <anonymous>:2:19"
+        }
 
 
 
-    //SyntaxError 对象代表尝试解析语法上不合法的代码的错误。
-    //对try..catch，代码必须是运行时，换句话说，必须是有效的Javascript代码。 
-    //如果代码语法错误不会工作
-    //Javascript引擎首先读代码，然后运行。发生在读阶段错误称为“解析时”错误，不可恢复，因为引擎不理解代码。
-    //所以，try...catch仅能处理有效代码中的错误，被称为“运行时”错误，有时也称为“异常”。
+        //TypeError（类型错误） 对象用来表示值的类型非预期类型时发生的错误。
 
-    //捕获 SyntaxError
-    try {
-      var 1 a;
-    } catch (e) { //不执行
-      console.log(e instanceof SyntaxError);
-      console.log(e.message);
-      console.log(e.name);
-      console.log(e.stack);
-    }
+        //捕获类型错误
+        try {
+            null.f();
+        } catch (e) {
+            console.log(e instanceof TypeError); // true
+            console.log(e.message); // "Cannot read property 'f' of null"
+            console.log(e.name); // "TypeError"
+            console.log(e.stack);
+        }
 
-    //创建 SyntaxError
-    try {
-      throw new SyntaxError('Hello');
-    } catch (e) {
-      console.log(e instanceof SyntaxError); // true
-      console.log(e.message); // "Hello"
-      console.log(e.name); // "SyntaxError"
-      console.log(e.stack);
-    }
+        //创建一个类型错误
+        try {
+            throw new TypeError('Hello');
+        } catch (e) {
+            console.log(e instanceof TypeError); // true
+            console.log(e.message); // "Hello"
+            console.log(e.name); // "TypeError"
+            console.log(e.stack);
+        }
 
 
+        //RangeError对象标明一个错误，当一个值不在其所允许的范围或者集合中。
 
-    //关于 eval 函数的错误.此异常不再会被JavaScript抛出，但是EvalError对象仍然保持兼容性.
-    try {
-      throw new EvalError('Hello');
-    } catch (e) {
-      console.log(e instanceof EvalError); // true
-      console.log(e.message); // "Hello"
-      console.log(e.name); // "EvalError"
+        try {
+            var a = new Array(-1);
+        } catch (e) {
+            console.log(e instanceof RangeError); // true
+            console.log(e.message); // "Invalid array length"
+            console.log(e.name); // "RangeError"
+            console.log(e.stack);
+        }
 
-      console.log(e.stack);
-    }
 
-    //当向全局 URI 处理函数传递一个不合法的URI时，URIError 错误会被抛出。
 
-    //捕获一个 URIError 
-    try {
-      decodeURIComponent('%');
-    } catch (e) {
-      console.log(e instanceof URIError); // true
-      console.log(e.message); // "URI malformed"
-      console.log(e.name); // "URIError"
-      console.log(e.stack);
-    }
-    //创建一个 URIError
+        //SyntaxError 对象代表尝试解析语法上不合法的代码的错误。
+        //对try..catch，代码必须是运行时，换句话说，必须是有效的Javascript代码。 
+        //如果代码语法错误不会工作
+        //Javascript引擎首先读代码，然后运行。发生在读阶段错误称为“解析时”错误，不可恢复，因为引擎不理解代码。
+        //所以，try...catch仅能处理有效代码中的错误，被称为“运行时”错误，有时也称为“异常”。
 
-    try {
-      throw new URIError('Hello');
-    } catch (e) {
-      console.log(e instanceof URIError); // true
-      console.log(e.message); // "Hello"
-      console.log(e.name); // "URIError"
-      console.log(e.stack);
-    }
-  </script>
+        //捕获 SyntaxError
+        try {
+            var 1 a;
+        } catch (e) { //不执行
+            console.log(e instanceof SyntaxError);
+            console.log(e.message);
+            console.log(e.name);
+            console.log(e.stack);
+        }
+
+        //创建 SyntaxError
+        try {
+            throw new SyntaxError('Hello');
+        } catch (e) {
+            console.log(e instanceof SyntaxError); // true
+            console.log(e.message); // "Hello"
+            console.log(e.name); // "SyntaxError"
+            console.log(e.stack);
+        }
+
+
+
+        //关于 eval 函数的错误.此异常不再会被JavaScript抛出，但是EvalError对象仍然保持兼容性.
+        try {
+            throw new EvalError('Hello');
+        } catch (e) {
+            console.log(e instanceof EvalError); // true
+            console.log(e.message); // "Hello"
+            console.log(e.name); // "EvalError"
+
+            console.log(e.stack);
+        }
+
+        //当向全局 URI 处理函数传递一个不合法的URI时，URIError 错误会被抛出。
+
+        //捕获一个 URIError 
+        try {
+            decodeURIComponent('%');
+        } catch (e) {
+            console.log(e instanceof URIError); // true
+            console.log(e.message); // "URI malformed"
+            console.log(e.name); // "URIError"
+            console.log(e.stack);
+        }
+        //创建一个 URIError
+
+        try {
+            throw new URIError('Hello');
+        } catch (e) {
+            console.log(e instanceof URIError); // true
+            console.log(e.message); // "Hello"
+            console.log(e.name); // "URIError"
+            console.log(e.stack);
+        }
+    </script>
 </body>
 
 </html>

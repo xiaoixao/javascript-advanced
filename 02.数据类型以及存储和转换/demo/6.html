@@ -13,9 +13,21 @@
     <script>
         var img = document.getElementsByTagName('img')[0];
         var index = 1;
-        setInterval(function () {
-          //补全代码
-           
+        setInterval(function() {
+            //补全代码
+            //1. if else
+            // if (index > 5) {
+            //     index = 1;
+            // }
+            // src = img.setAttribute("src", "images/img_" + index + ".jpg");
+            // index++;
+
+            //2. %
+            index = index % 5;
+            index++;
+            var src = "images/img_" + index + ".jpg";
+            img.src = src;
+
         }, 1500);
     </script>
 

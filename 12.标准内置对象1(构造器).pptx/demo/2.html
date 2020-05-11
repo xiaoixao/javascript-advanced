@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Date</title>
+</head>
+
+<body>
+    <script>
+        var a = 1.2345;
+        console.log(a.toFixed(2));
+
+        var b = new Number(a);
+        console.log(b);
+
+        console.log(Number.MAX_SAFE_INTEGER);
+        console.log(Number.MIN_SAFE_INTEGER);
+
+        console.log(Date()); //返回值是 字符串
+        console.log(new Date()); //返回值是 对象
+
+        var date = new Date();
+        console.log("时间戳为" + date.getTime());
+
+        console.log("时间戳为" + Date.now());
+
+
+        var date1 = new Date();
+        var time1 = date1.getTime();
+        console.log(time1);
+        var time2 = new Date(time1);
+        console.log(time2.getFullYear());
+        console.log(time2.getMinutes());
+    </script>
+</body>
+
+</html>

@@ -2,62 +2,57 @@
 <html>
 
 <head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-  <style>
-    body {
-      padding: 50px;
-    }
-
-    button {
-      padding: 5px 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            padding: 50px;
+        }
+        
+        button {
+            padding: 5px 10px;
+        }
+    </style>
 </head>
 
 <body>
-  <button id="btn">按钮</button>
-  <script>
-    //默认绑定
-    //案例1
-    var a = 2;
+    <button id="btn">按钮</button>
+    <script>
+        //默认绑定
+        //案例1
+        // var a = 2;
 
-    function foo() {
-      console.log(this);
-      console.log(this.a);
-    }
-    foo();
+        // function foo() {
+        //     console.log(this);
+        //     console.log(this.a);
+        // }
+        // foo();
 
-    //案例2
-    function show() {
-      var a = 200;
-      console.log(this.a); //100
-    }
-    var a = 100;
-    setTimeout(show, 3000); //定时器回调函数调用时，函数上下文是window对象。
+        // //案例2
+        // function show() {
+        //     var a = 200;
+        //     console.log(this.a); //100
+        // }
+        // var a = 100;
+        // setTimeout(show, 3000); //定时器回调函数调用时，函数上下文是window对象。
 
 
-    //案例3
-    var btn = document.getElementById("btn");
-    var a = 100;
-    btn.onclick = function () {
-      var a = 300;
+        //案例3
+        var btn = document.getElementById("btn");
+        var a = 100;
+        btn.onclick = function() {
+            var a = 300;
+            var _this = this;
+            //软绑定  bind绑定方法
 
-      //软绑定  bind绑定方法
-
-      function show() {
-        var a = 200;
-        console.log(this.a);
-        console.log(this.id);
-      }
-      setTimeout(show, 3000);
-    }
-  </script>
-</body>
-
-</html>
-
-</script>
+            function show() {
+                var a = 200;
+                console.log(_this.a);
+                console.log(_this.id);
+            }
+            setTimeout(show, 3000);
+        }
+    </script>
 </body>
 
 </html>

@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      function getXHR() {
-        var xhr;
-        if (window.XMLHttpRequest) {
-          xhr = new XMLHttpRequest();
-        } else {
-          xhr = new ActiveXObjext('Microsoft.XMLHttp');
+        function getXHR() {
+            var xhr;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else {
+                xhr = new ActiveXObjext('Microsoft.XMLHttp');
+            }
+            return xhr;
         }
-        return xhr;
-      }
-      //第一步：创建XMLHttpReques对象
-      var ajax = getXHR();
-      //第二步：创建请求
-      ajax.open('get', 'data.json', true);
+        //第一步：创建XMLHttpReques对象
+        var ajax = getXHR();
+        //第二步：创建请求
+        ajax.open('get', 'data.json', true);
+        console.dir(ajax);
     </script>
-  </body>
+</body>
+
 </html>
