@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <script src="js/jquery.js"></script>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #bang {
+      width: 150px;
+      border: solid #ccc;
+      padding: 5px;
+      margin: 50px;
+      background-color: darkolivegreen;
+      display: block;
+      color: white;
+    }
+
+    #bang li {
+      list-style-type: none;
+      line-height: 24px;
+    }
+
+    #bang li.on ul {
+      display: block;
+      padding-left: 50px;
+    }
+
+    #bang li ul {
+      display: none;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <ul id="bang">
+      <li>
+        <span>事件</span>
+        <ul>
+          <li>最近</li>
+          <li>上周</li>
+          <li>上月</li>
+        </ul>
+      </li>
+      <li>
+        <span>娱乐</span>
+        <ul>
+          <li>游戏</li>
+          <li>电影</li>
+          <li>电视</li>
+        </ul>
+      </li>
+      <li>
+        <span>人物</span>
+        <ul>
+          <li>美女</li>
+          <li>帅哥</li>
+          <li>明星</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>
