@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      body {
+        padding-left: 100px;
+        padding-top: 50px;
+        height: 1000px;
+      }
+
+      .selected {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>第1个列表</li>
+      <li>第2个列表</li>
+      <li>第3个列表</li>
+      <li class="selected">第4个列表</li>
+      <li>第5个列表</li>
+      <li>第6个列表</li>
+      <li>第7个列表</li>
+      <li>第8个列表</li>
+    </ul>
+
+    <script src="js/jquery.js"></script>
+    <script>
+      //children()获取匹配元素的子元素集合
+      //$("ul").children().css("color","red");
+
+      //eq(index)获取匹配元素的集合中指定索引的那一个元素
+      //$("ul").children().eq(3).css("color","red");
+      //$("ul li:eq(3)").css("color","red");
+
+      //parent()获取匹配元素集合中，每个元素的父元素
+      /*console.log($("ul").children().eq(3).parent());
+    $("ul").children().eq(3).parent().css("color","red");*/
+
+      //parents()获得集合中每个匹配元素的祖先元素
+      // console.log($("ul").children().eq(3).parents());
+
+      //next()获得匹配的元素紧邻的后面同辈的元素
+      //$(".selected").next().css("color","blue");
+
+      //nextAll()获得匹配元素所有下面的同辈元素
+      //$(".selected").nextAll().css("color","yellow");
+
+      //siblings()获得匹配元素集合中每个元素的兄弟元素
+      //$(".selected").siblings().css("color","yellow");
+
+      //prev()获取匹配元素紧邻的前一个同辈兄弟元素
+      //$(".selected").prev().css("color","blue");
+    </script>
+  </body>
+</html>

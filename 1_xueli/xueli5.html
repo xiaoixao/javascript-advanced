@@ -43,20 +43,27 @@
 
 
     //任务1： 获取最高score值
-    for (var i = 0; i < students.length; i++) {
-        // console.log(students[i]);
-        for (var j = 0; j < students.length - i - 1; j++) {
-            // console.log(students[j]);
+    var scores = students.map(function(item) {
+        return item.score;
+    });​
+    var maxScore = Math.max.apply(this, scores);​
+    console.log(maxScore);
+    7
 
-            var temp;
-            if (students[j].score < students[j + 1].score) {
-                temp = students[j];
-                students[j] = students[j + 1];
-                students[j + 1] = temp;
-            }
-        }
-    }
-    console.log("最高score值是" + students[0].score);
+    // for (var i = 0; i < students.length; i++) {
+    //     // console.log(students[i]);
+    //     for (var j = 0; j < students.length - i - 1; j++) {
+    //         // console.log(students[j]);
+
+    //         var temp;
+    //         if (students[j].score < students[j + 1].score) {
+    //             temp = students[j];
+    //             students[j] = students[j + 1];
+    //             students[j + 1] = temp;
+    //         }
+    //     }
+    // }
+    // console.log("最高score值是" + students[0].score);
 
 
     //任务2： 判断是否包含不及格学生（小于60不及格）（包含打印true,不包含打印false）
@@ -68,25 +75,25 @@
 
 
     //任务3.  求所有学生的平均分
-    var total = 0;
-    for (var i = 0; i < students.length; i++) {
-        total += students[i].score;
-    }
-    console.log("所有学生的平均分是" + total / students.length)
+    // var total = 0;
+    // for (var i = 0; i < students.length; i++) {
+    //     total += students[i].score;
+    // }
+    // console.log("所有学生的平均分是" + total / students.length)
 
     //任务4.  找出不及格学生的所有名字
-    var scores;
-    for (var i = 0; i < students.length; i++) {
-        scores = students[i].score;
-        if (scores < 60) {
-            console.log("不及格学生的名字有" + students[i].name);
-        }
-    }
+    // var scores;
+    // for (var i = 0; i < students.length; i++) {
+    //     scores = students[i].score;
+    //     if (scores < 60) {
+    //         console.log("不及格学生的名字有" + students[i].name);
+    //     }
+    // }
 
     //任务5.  按成绩从高到低排序
-    for (var key in students) {
-        console.log(students[key]);
-    }
+    // for (var key in students) {
+    //     console.log(students[key]);
+    // }
 </script>
 
 </html>

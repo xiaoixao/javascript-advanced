@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Panel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 60px;
+    }
+
+    body>div {
+      width: 600px;
+      height: 100px;
+      border: 1px solid red;
+      position: relative;
+      float: left;
+      margin-right: 20px;
+    }
+
+    #panel,
+    #pane2 {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #96e555;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div id="panel"></div>
+  </div>
+  <div>
+    <div id="pane2"></div>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(function () {
+      $('#panel').click(function () {
+        $(this).animate({
+          left: '+=500px', //同时发生
+          height: '200px',
+        }, 3000);
+      });
+      $('#pane2').click(function () {
+        $(this)
+          .animate({ left: '+=500px' }, 3000)
+          .animate({ height: '200px' }, 3000)
+          .animate({ top: '100px' }, 3000);
+      });
+    });
+  </script>
+</body>
+
+</html>

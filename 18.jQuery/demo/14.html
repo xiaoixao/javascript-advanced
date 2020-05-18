@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding-left: 100px;
+        padding-top: 50px;
+        height: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="images/1.jpg" alt="" />
+    <img src="images/2.jpg" alt="" />
+    <img src="images/3.jpg" alt="" />
+    <img src="images/4.jpg" alt="" />
+    <img src="images/5.jpg" alt="" />
+
+    <script src="js/jquery-3.2.1.js"></script>
+
+    <script>
+      //执行时机
+
+      //window.onload事件是在网页中所有的元素（包括元素的所有关联文件）完全加载到浏览器后才执行
+
+      window.onload = function () {
+        alert('window.onload');
+      };
+      // $(document).ready( )方法注册的事件处理程序，在DOM完全加载以后就可以调用
+      $(document).ready(function () {
+        alert('ready()');
+      });
+
+      //事件编写个数
+      //window.onload事件不能同时编写多个——最后一个覆盖前面被执行
+
+      window.onload = function () {
+        console.log('window.onload——1');
+      };
+      window.onload = function () {
+        console.log('window.onload——2');
+      };
+      window.onload = function () {
+        console.log('window.onload——3');
+      };
+
+      //$(document).ready( )方法能同时编写多个
+      $(document).ready(function () {
+        console.log('ready()——1');
+      });
+      $(document).ready(function () {
+        console.log('ready()——2');
+      });
+      $(document).ready(function () {
+        console.log('ready()——3');
+      });
+
+      //简化写法
+      //window.onload事件没有简化写法
+
+      window.onload = function () {
+        console.log('window.onload——1');
+      };
+
+      //$(document).ready( )方法有简化写法
+
+      //这是第一种写法
+      $(document).ready(function () {
+        //这里开始常见事件处理代码
+        console.log('ready()——1');
+      });
+
+      //这是第二种写法
+      $().ready(function () {
+        console.log('ready()——2');
+      });
+      //这是第三种写法
+
+      $(function () {
+        console.log('ready()——3');
+      });
+    </script>
+  </body>
+</html>

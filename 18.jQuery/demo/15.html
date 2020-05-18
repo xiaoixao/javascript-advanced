@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding-left: 100px;
+        padding-top: 50px;
+        height: 1000px;
+      }
+
+      div {
+        background-color: #ffee11;
+        width: 400px;
+        height: 200px;
+        font-size: 50px;
+        text-align: center;
+        line-height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divs">鼠标点击</div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+      //绑定一个事件
+      $('#divs').on('click', function () {
+        $(this).css('color', 'red');
+      });
+
+      //绑定多个事件——中间用空格隔开
+      $('#divs').on('click mouseover', function () {
+        $(this).css('color', 'red');
+      });
+
+
+      //移除点击事件
+      $('#divs').off('click');
+      //移除所有事件
+      $('#divs').off();
+    </script>
+  </body>
+</html>

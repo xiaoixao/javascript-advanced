@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding-left: 100px;
+        padding-top: 50px;
+        height: 1000px;
+      }
+
+      div {
+        background-color: #ffee11;
+        width: 400px;
+        height: 200px;
+        font-size: 50px;
+        text-align: center;
+        line-height: 200px;
+      }
+
+      .style {
+        background: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divs">鼠标点击</div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+      $('#divs')
+        .mouseover(function () {
+          $(this).addClass('style');
+        })
+        .mouseout(function () {
+          $(this).removeClass('style');
+        });
+
+      $('#divs')
+        .mouseenter(function () {
+          $(this).addClass('style');
+        })
+        .mouseleave(function () {
+          $(this).removeClass('style');
+        });
+
+      $('#divs').hover(
+        function () {
+          $(this).addClass('style');
+        },
+        function () {
+          $(this).removeClass('style');
+        }
+      );
+    </script>
+  </body>
+</html>
