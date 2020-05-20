@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+
+<head lang="en">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ajax</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <script src="js/jquery.js"></script>
     <script>
-      $.ajax({
-        method: 'GET', //请求方式
-        url: './data.json', //请求地址
-        dataType: 'json', //数据类型
-        success: function (data) {
-          console.log(data);
-        },
-      });
+        $.ajax({
+            method: 'GET', //请求方式
+            url: './data.json', //请求地址
+            dataType: 'json', //数据类型
+            success: function(data) {
+                console.log(data);
+            },
+        });
     </script>
-  </body>
+</body>
+
 </html>

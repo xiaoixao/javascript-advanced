@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head lang="en">
+
+<head lang="en">
     <meta charset="UTF-8" />
     <title></title>
     <style>
-      * {
-        padding: 0;
-        margin: 0;
-      }
-
-      body {
-        padding: 50px;
-      }
-
-      div {
-        width: 500px;
-        height: 5000px;
-        background: black;
-        padding: 20px;
-        position: relative;
-      }
-
-      p {
-        background: royalblue;
-        width: 200px;
-        height: 200px;
-        position: absolute;
-        left: 50px;
-        top: 50px;
-      }
-      button {
-        position: fixed;
-        right: 50px;
-        bottom: 150px;
-      }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            padding: 50px;
+        }
+        
+        div {
+            width: 500px;
+            height: 5000px;
+            background: black;
+            padding: 20px;
+            position: relative;
+        }
+        
+        p {
+            background: royalblue;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+        
+        button {
+            position: fixed;
+            right: 50px;
+            bottom: 150px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div>
-      <p></p>
+        <p></p>
     </div>
     <button>返回顶部</button>
 
     <script src="js/jquery.js"></script>
     <script>
-      //对于当前窗口的偏移距离
-      var p = $('p');
-      var pOffset = p.offset();
-      console.log(pOffset);
+        //对于当前窗口的偏移距离
+        var p = $('p');
+        var pOffset = p.offset();
+        console.log(pOffset);
 
-      //相对于定位父元素的偏移距离
-      var pPos = p.position(); //div相对于body的距离
-      console.log(pPos);
+        //相对于定位父元素的偏移距离
+        var pPos = p.position(); //div相对于body的距离
+        console.log(pPos);
 
-      //返回顶部
-      $('button:eq(0)').click(function () {
-        $(document).scrollTop(0);
-      });
+        //返回顶部
+        $('button:eq(0)').click(function() {
+            $(document).scrollTop(0);
+        });
     </script>
-  </body>
+</body>
+
 </html>
