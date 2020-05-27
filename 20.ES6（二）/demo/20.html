@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //与let一样，不存在变量提升，存在暂时性死区，必须先声明后使用
+      // var instance = new SuperType('Tom');
+      // var SuperType = 1;
+
+      var name = 'global';
+
+      class SuperType {
+        constructor(name) {
+          this.name = name;
+        }
+
+        say() {
+          console.log(this);
+          console.log(this.name);
+        }
+      }
+
+      // console.log(typeof SuperType); //function
+      // SuperType(); //直接调用报错,只能使用new调用
+
+      // 类内部定义在严格模式下
+      // var instance = new SuperType('Tom');
+      // instance.say();
+      // var say = instance.say;
+      // say();
+    </script>
+  </body>
+</html>

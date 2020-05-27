@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="js/jquery.js"></script>
+    <script>
+      //异步请求 1.txt
+      $.ajax({
+        url: 'txt/1.txt',
+        success: function (data) {
+          console.log('1.txt请求成功');
+        },
+        error: function (err) {
+          console.log('1.txt请求失败');
+        },
+      });
+
+      //请求1.txt 成功后请求2.txt  再成功后请求3.txt   你能保证顺序吗？
+
+      $.ajax({
+        url: 'txt/1.txt',
+        success: function (data) {
+          console.log('1.txt请求成功', data);
+          $.ajax({
+            url: 'txt/2.txt',
+            success: function (data) {
+              console.log('2.txt请求成功', data);
+              $.ajax({
+                url: 'txt/3.txt',
+                success: function (data) {
+                  console.log('3.txt请求成功', data);
+                },
+                error: function (err) {
+                  console.log('3.txt请求失败');
+                },
+              });
+            },
+            error: function (err) {
+              console.log('2.txt请求失败');
+            },
+          });
+        },
+        error: function (err) {
+          console.log('1.txt请求失败');
+        },
+      });
+
+      //请求1.txt 成功后请求2.txt  再成功后请求3.txt
+      // $.ajax({
+      //   url: 'txt/1.txt',
+      //   success: function (data) {
+      //     console.log('1.txt请求成功', data);
+      //     $.ajax({
+      //       url: 'txt/2.txt',
+      //       success: function (data) {
+      //         console.log('2.txt请求成功', data);
+      //         $.ajax({
+      //           url: 'txt/3.txt',
+      //           success: function (data) {
+      //             console.log('3.txt请求成功', data);
+      //           },
+      //           error: function (err) {
+      //             console.log('3.txt请求失败');
+      //           },
+      //         });
+      //       },
+      //       error: function (err) {
+      //         console.log('2.txt请求失败');
+      //       },
+      //     });
+      //   },
+      //   error: function (err) {
+      //     console.log('1.txt请求失败');
+      //   },
+      // });
+
+      //问题1：异步执行结果完成时间,异步结果的处理
+      //问题2：代码书写造成回调函数层层嵌套 ———— 回调地狱
+    </script>
+  </body>
+</html>

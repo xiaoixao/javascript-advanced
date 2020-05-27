@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let p1 = new Promise((resolve, reject) => {
+        let num = 6;
+        if (num < 5) {
+          console.log('resolve1');
+          resolve(num);
+        } else {
+          console.log('reject1');
+          reject(num);
+        }
+      });
+
+      p1.then(
+        (res) => {
+          console.log('resolve2');
+          console.log(res);
+        },
+        (rej) => {
+          console.log('reject2');
+          let p2 = new Promise((resolve, reject) => {
+            if (rej * 2 > 10) {
+              console.log('resolve3');
+              resolve(rej * 2);
+            } else {
+              console.log('reject3');
+              reject(rej * 2);
+            }
+          });
+          return p2;
+        }
+      ).then(
+        (res) => {
+          console.log('resolve4');
+          console.log(res);
+        },
+        (rej) => {
+          console.log('reject4');
+          console.log(rej);
+        }
+      );
+    </script>
+  </body>
+</html>

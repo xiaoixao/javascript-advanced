@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //分析控制台输出结果
+      console.log(1);
+      //Promise 构造函数执行时立即调用执行 executor 函数
+      new Promise(function (resolve, reject) {
+        console.log(2);
+      });
+      setTimeout(function () {
+        console.log(3);
+      }, 0);
+      console.log(4);
+    </script>
+  </body>
+</html>

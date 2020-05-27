@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="div">1234</div>
+    <script>
+      div = document.getElementById('div');
+      console.log(1);
+      p = new Promise(function (resolve, reject) {
+        div.innerHTML = 'promise1';
+        setTimeout(function () {
+          div.innerHTML = 'timeout1';
+          resolve();
+        }, 5000);
+      });
+      p.then(function () {
+        div.innerHTML = 'then1';
+      });
+      div.innerHTML = 'global1';
+    </script>
+  </body>
+</html>

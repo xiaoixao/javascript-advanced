@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      var getPromise = (value, delay) => {
+        return new Promise((resolve) => {
+          setTimeout(() => resolve(value), delay);
+        });
+      };
+      var promise1 = getPromise('value-1', 350);
+      var promise2 = getPromise('value-2', 250);
+      var promise3 = getPromise('value-3', 150);
+
+      var promise = Promise.all([promise1, promise2, promise3]);
+      promise
+        .then((result) => {
+          console.log('result of promise:', result);
+        })
+        .catch((error) => {
+          console.log('error', error);
+        });
+    </script>
+  </body>
+</html>

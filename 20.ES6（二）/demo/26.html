@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="js/jquery.js"></script>
+    <script>
+      function promise(url) {
+        return new Promise(function (resolve, reject) {
+          $.ajax({
+            url: url,
+            success: function (data) {
+              resolve(data);
+            },
+            error: function (err) {
+              reject(err);
+            },
+          });
+        });
+      }
+
+      //请求1.txt 成功后请求2.txt  再成功后请求3.txt
+      async function fun() {
+        let txt1 = await promise('txt/1.txt');
+        console.log(txt1);
+        let txt2 = await promise('txt/2.txt');
+        console.log(txt2);
+        let txt3 = await promise('txt/3.txt');
+        console.log(txt3);
+      }
+      fun();
+
+      // promise('txt/1.txt')
+      //   .then(function (data) {
+      //     console.log(data); //获取1.txt数据
+      //     return promise('txt/2.txt');
+      //   })
+      //   .then(function (data) {
+      //     console.log(data); //获取2.txt数据
+      //     return promise('txt/3.txt');
+      //   })
+      //   .then(function (data) {
+      //     console.log(data); //获取3.txt数据
+      //   });
+    </script>
+  </body>
+</html>
