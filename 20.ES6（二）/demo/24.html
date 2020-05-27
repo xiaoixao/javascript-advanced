@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class SuperType {
+        count = 0;
+
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+
+        say() {
+          console.log(this.count);
+        }
+
+        static hello() {
+          console.log('hello');
+        }
+      }
+
+      class SubType extends SuperType {
+        constructor(x, y) {
+          // this.m = 4; //报错
+          //在 ES5 的传统继承中， this 的值会先被派生类（例如 SubType ）创建，随后基类构造器 （例如 SuperType.apply() 方法）才被调用。这意味着 this 一开始就是 SubType 的实例，之后才使用了 SuperType 的附加属性对其进行了装饰。
+          //在 ES6 基于类的继承中， this的值会先被基类（ SuperType ）创建，随后才被派生类的构造器（ SubType ）所修改。结果是 this 初始就拥有作为基类的内置对象的所有功能，并能正确接收与之关联的所有功能。
+          //super()只能在子类的构造函数中使用,且必须放在第一行调用,或者说必须放在this之前
+          super(x, y); //相当于 SuperType.prototype.constructor.call(this,x,y)
+          this.z = 3;
+        }
+
+        //派生类与基类的方法相同时，会覆盖或者屏蔽基类的方法
+        //但通常我们不想完全替父类方法,而是在父方法的基础上调整或者扩展功能
+        say() {
+          console.log(this.count);
+        }
+        // say() {
+        //   super.say();
+        //   console.log('do something');
+        // }
+
+        static world() {
+          super.hello(); //在静态方法中 super 执行当前父类本身
+          console.log('world');
+        }
+      }
+      var instance = new SubType(1, 2);
+      console.log(instance);
+      console.dir(SubType); //派生类继承基类的静态方法
+      SubType.world();
+    </script>
+  </body>
+</html>

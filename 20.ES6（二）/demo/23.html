@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class SuperType {
+        count = 0;
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+
+        say() {
+          console.log(this.count);
+        }
+
+        static hello() {
+          console.log('hello');
+        }
+      }
+
+      class SubType extends SuperType {
+        // constructor(...args) {
+        //   super(...args);
+        // }
+      }
+      var instance = new SubType(1, 2);
+      console.log(instance);
+    </script>
+  </body>
+</html>

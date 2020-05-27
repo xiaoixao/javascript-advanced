@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      class SuperType {
+        constructor(name) {
+          //构造函数
+          this.name = name;
+        }
+
+        say() {
+          //原型方法
+          console.log(this.name);
+        }
+      }
+      var instance = new SuperType('Tom');
+
+      console.log(typeof SuperType); //function
+      console.log(SuperType === SuperType.prototype.constructor); //true
+      console.log(instance.__proto__ === SuperType.prototype); //true
+
+      /*
+                   new操作符的作用
+                   1. 创建一个空的简单 JavaScript 对象（即 {}）
+                   2. 该对象会被执行 [[ prototype ]] 连接
+                   3. 将该对象作为 this 的上下文，并执行构造函数中的代码
+                   4. 如果构造函数没有返回引用类型，则返回 this 指向的实例对象
+        */
+    </script>
+  </body>
+</html>

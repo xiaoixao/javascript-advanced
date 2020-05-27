@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <div class="table-responsive container">
+      <table class="table table-bordered table-hover" id="table">
+        <tr>
+          <th class="col-md-1">序号</th>
+          <th class="col-md-1">题目</th>
+          <th class="col-md-3">内容</th>
+          <th class="col-md-1">作者</th>
+        </tr>
+      </table>
+    </div>
+    <script>
+      var promise = new Promise(function (resolve, reject) {
+        var ajax = new XMLHttpRequest();
+        ajax.open('get', './json/data.json', true);
+        ajax.send(null);
+        ajax.onreadystatechange = function () {
+          if (ajax.readyState == 4) {
+            //数据接收成功
+            if (ajax.status == 200) {
+              //数据是我们想要的
+              var data = JSON.parse(ajax.responseText); //json数据解析为js对象
+              resolve(data);
+            } else {
+              //数据不是我们想要的
+              // console.dir(ajax)
+              reject(new Error('Request was unsuccessful: ' + ajax.statusText));
+            }
+          }
+        };
+      });
+      promise
+        .then(function (data) {
+          for (var i = 0; i < data.length; i++) {
+            table.innerHTML += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${data[i].title}</td>
+                        <td>${data[i].content.replace(/\|/g, '<br/>')}</td>
+                        <td>${data[i].authors}</td>
+                    </tr>
+                `;
+          }
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>
