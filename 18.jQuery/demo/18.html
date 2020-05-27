@@ -1,79 +1,84 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>show和hide</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-size: 13px;
-        line-height: 130%;
-        padding: 60px;
-      }
-
-      #panel {
-        width: 300px;
-        border: 1px solid #0050d0;
-      }
-
-      .head {
-        padding: 5px;
-        background: #96e555;
-        cursor: pointer;
-      }
-
-      .content {
-        padding: 10px;
-        text-indent: 2em;
-        border-top: 1px solid #0050d0;
-        display: none;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-size: 13px;
+            line-height: 130%;
+            padding: 60px;
+        }
+        
+        #panel {
+            width: 300px;
+            border: 1px solid #0050d0;
+        }
+        
+        .head {
+            padding: 5px;
+            background: #96e555;
+            cursor: pointer;
+        }
+        
+        .content {
+            padding: 10px;
+            text-indent: 2em;
+            border-top: 1px solid #0050d0;
+            display: none;
+        }
     </style>
-  </head>
-  <body>
-    <div id="panel">
-      <h5 class="head">什么是jQuery?</h5>
+</head>
 
-      <div class="content">
-        jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由 John Resig
-        创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
-      </div>
+<body>
+    <div id="panel">
+        <h5 class="head">什么是jQuery?</h5>
+
+        <div class="content">
+            jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由 John Resig 创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
+        </div>
     </div>
     <script src="js/jquery.js"></script>
     <script>
-      $(function () {
-        //加载完成时
+        $(function() {
+            //加载完成时
+			// $(function(){
 
-        //1.不指定任何参数调用show()  hide()
-        $('#panel').hover(
-          function () {
-            $(this).find('div').show();
-          },
-          function () {
-            $(this).find('div').hide();
-          }
-        );
+			// })
 
-        //2.指定关键字调用show()  hide()
-        //关键字：slow:600 normal:400 fast:200  默认为400
-        //关键字需加引号
-        /* $("#panel").hover(function () {
-            $(this).find('div').show("slow");
-        }, function () {
-            $(this).find('div').hide("fast");
-        });*/
+            //1.不指定任何参数调用show()  hide()
+            $('#panel').hover(
+                function() {
+                    $(this).find('div').show();
+                },
+                function() {
+                    $(this).find('div').hide();
+                }
+            );
 
-        //3.指定时间调用show()  hide() 单位为毫秒
-        /*$("#panel").hover(function () {
-            $(this).find('div').show(1000);
-        }, function () {
-            $(this).find('div').hide(1000);
-        })*/
-      });
+            //2.指定关键字调用show()  hide()
+            //关键字：slow:600 normal:400 fast:200  默认为400
+            //关键字需加引号
+            /* $("#panel").hover(function () {
+                $(this).find('div').show("slow");
+            }, function () {
+                $(this).find('div').hide("fast");
+            });*/
+
+            //3.指定时间调用show()  hide() 单位为毫秒
+            /*$("#panel").hover(function () {
+                $(this).find('div').show(1000);
+            }, function () {
+                $(this).find('div').hide(1000);
+            })*/
+        });
     </script>
-  </body>
+</body>
+
 </html>

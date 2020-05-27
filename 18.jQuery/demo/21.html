@@ -1,82 +1,111 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Panel</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        padding: 60px;
-        font-size: 30px;
-      }
-
-      body > div {
-        width: 700px;
-        height: 100px;
-        border: 1px solid red;
-        position: relative;
-        margin-bottom: 10px;
-        margin-top: 5px;
-      }
-
-      #panel1,
-      #panel2,
-      #panel3 {
-        position: absolute;
-        left: 300px;
-        width: 100px;
-        height: 100px;
-        background: #96e555;
-        cursor: pointer;
-      }
-
-      span {
-        color: crimson;
-        font-weight: bold;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            padding: 60px;
+            font-size: 30px;
+        }
+        
+        body>div {
+            width: 700px;
+            height: 100px;
+            border: 1px solid red;
+            position: relative;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+        
+        #panel1,
+        #panel2,
+        #panel3 {
+            position: absolute;
+            left: 300px;
+            width: 100px;
+            height: 100px;
+            background: #96e555;
+            cursor: pointer;
+        }
+        
+        span {
+            color: crimson;
+            font-weight: bold;
+        }
     </style>
-  </head>
-  <body>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
     left:
     <span>"400px"</span>
 
     <div>
-      <div id="panel1"></div>
+        <div id="panel1"></div>
     </div>
     left:
     <span>"+=300px"</span>
 
     <div>
-      <div id="panel2"></div>
+        <div id="panel2"></div>
     </div>
     left:
     <span>"-=300px"</span>
 
     <div>
-      <div id="panel3"></div>
+        <div id="panel3"></div>
     </div>
-    <script src="js/jquery.js"></script>
-    <script>
-      $(function () {
+</body>
+<script>
+    $(function() {
         //指定元素走到left=300的地方
-        $('#panel1').click(function () {
-          $(this).animate({ left: '400px' }, 3000);
+        // $('#panel1').click(function() {
+        //     $(this).animate({
+        //         left: '400px'
+        //     }, 1000).animate({
+        //         width: "200px"
+        //     }, 1000).animate({
+        //         height: "200px"
+        //     }, 1000);
+        // });
+
+        $('#panel1').click(function() {
+            $(this)
+                .animate({
+                    left: '+=100px'
+                }, 1000)
+                .animate({
+                    width: "200px",
+                    opacity: 0.5
+                }, 1000),
+                function() {
+                    css('border', '3px solid blue');
+                };
         });
 
         //指定元素在现有的位置基础之上再向右走300
-        $('#panel2').click(function () {
-          $(this).animate({ left: '+=300px' }, 3000);
+        $('#panel2').click(function() {
+            $(this)
+                .animate({
+                    left: '+=300px'
+                }, 3000)
+                .css('border', '3px solid blue');
         });
 
         //指定元素在现有的位置基础之上再向左走300
-        $('#panel3').click(function () {
-          $(this).animate({ left: '-=300px' }, 3000);
+        $('#panel3').click(function() {
+            $(this).animate({
+                left: '-=300px'
+            }, 3000);
         });
-      });
-    </script>
-  </body>
+    });
+</script>
+
 </html>
